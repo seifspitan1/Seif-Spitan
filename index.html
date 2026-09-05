@@ -3,31 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Seif Spitan - Software Engineer & Web Developer Portfolio Preview">
-  <title>Seif Spitan &bull; Software Engineer</title>
-
-  <!-- Typography: Inter & JetBrains Mono -->
+  <title>Seif Spitan</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --bg: #0c0d10;
-      --card-bg: #13151b;
-      --card-hover: #181b23;
-      --border: #222632;
-      --border-light: #2d3343;
-      --text: #f1f5f9;
-      --text-muted: #94a3b8;
-      --text-dim: #64748b;
-      --accent: #e2e8f0;
-      --tag-bg: #1a1e29;
-      --tag-border: #262c3b;
-      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      --font-mono: 'JetBrains Mono', monospace;
-    }
-
     * {
       box-sizing: border-box;
       margin: 0;
@@ -35,469 +15,78 @@
     }
 
     body {
-      background-color: var(--bg);
-      color: var(--text);
-      font-family: var(--font-sans);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      padding: 60px 24px 80px 24px;
+      min-height: 100vh;
       display: flex;
+      align-items: center;
       justify-content: center;
+      background-color: #0d0e11;
+      color: #f3f4f6;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      padding: 24px;
+      text-align: center;
     }
 
-    .wrapper {
+    .container {
+      max-width: 400px;
       width: 100%;
-      max-width: 660px;
     }
 
-    /* Top Navigation / Status Header */
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 56px;
-      padding-bottom: 20px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .logo {
+    h1 {
+      font-size: 2.2rem;
       font-weight: 600;
-      font-size: 0.95rem;
-      letter-spacing: -0.01em;
-      color: var(--text);
-      text-decoration: none;
-    }
-
-    .status-indicator {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      font-family: var(--font-mono);
-      background: var(--tag-bg);
-      border: 1px solid var(--tag-border);
-      padding: 4px 10px;
-      border-radius: 9999px;
-    }
-
-    .dot {
-      width: 6px;
-      height: 6px;
-      background: #22c55e;
-      border-radius: 50%;
-    }
-
-    /* Intro / Hero */
-    .intro {
-      margin-bottom: 48px;
-    }
-
-    .name-title {
-      font-size: 2rem;
-      font-weight: 700;
       letter-spacing: -0.03em;
-      line-height: 1.2;
       margin-bottom: 8px;
-      color: var(--text);
+      color: #ffffff;
     }
 
-    .role-badge {
+    .subtitle {
       font-size: 1rem;
-      color: var(--text-muted);
-      font-weight: 450;
-      margin-bottom: 20px;
+      color: #9ca3af;
+      margin-bottom: 24px;
     }
 
-    .bio {
-      color: var(--text-muted);
-      font-size: 1rem;
-      line-height: 1.65;
-    }
-
-    .bio p {
-      margin-bottom: 12px;
-    }
-
-    .bio p:last-child {
-      margin-bottom: 0;
-    }
-
-    /* Section Styles */
-    section {
-      margin-bottom: 48px;
-    }
-
-    .section-title {
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      font-weight: 600;
-      color: var(--text-dim);
-      margin-bottom: 20px;
-    }
-
-    /* Projects List */
-    .project-list {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .project-card {
-      display: block;
-      text-decoration: none;
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 18px 20px;
-      transition: all 0.15s ease-in-out;
-    }
-
-    .project-card:hover {
-      background: var(--card-hover);
-      border-color: var(--border-light);
-      transform: translateY(-1px);
-    }
-
-    .project-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      margin-bottom: 6px;
-    }
-
-    .project-name {
-      font-size: 1rem;
-      font-weight: 600;
-      color: var(--text);
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .project-arrow {
-      color: var(--text-dim);
-      font-size: 0.85rem;
-      transition: transform 0.15s ease, color 0.15s ease;
-    }
-
-    .project-card:hover .project-arrow {
-      color: var(--text);
-      transform: translate(2px, -2px);
-    }
-
-    .project-desc {
-      font-size: 0.88rem;
-      color: var(--text-muted);
-      line-height: 1.5;
-      margin-bottom: 12px;
-    }
-
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-    }
-
-    .tag {
-      font-family: var(--font-mono);
-      font-size: 0.72rem;
-      color: var(--text-dim);
-      background: var(--tag-bg);
-      border: 1px solid var(--tag-border);
-      padding: 2px 8px;
-      border-radius: 4px;
-    }
-
-    /* Skills / Tech Stack */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 12px;
-    }
-
-    .skill-category {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 16px;
-    }
-
-    .skill-title {
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: var(--text-dim);
-      font-family: var(--font-mono);
-      margin-bottom: 8px;
-    }
-
-    .skill-items {
-      font-size: 0.88rem;
-      color: var(--text-muted);
-      line-height: 1.6;
-    }
-
-    /* Contact / Connect */
-    .contact-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .link-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 16px;
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      color: var(--text);
-      text-decoration: none;
-      font-size: 0.88rem;
-      font-weight: 500;
-      transition: all 0.15s ease;
-      cursor: pointer;
-    }
-
-    .link-btn:hover {
-      background: var(--card-hover);
-      border-color: var(--border-light);
-    }
-
-    .link-btn svg {
-      width: 16px;
-      height: 16px;
-      stroke: currentColor;
-    }
-
-    /* Toast Notification */
-    .toast {
-      position: fixed;
-      bottom: 24px;
-      left: 50%;
-      transform: translateX(-50%) translateY(40px);
-      background: #1e293b;
-      color: #f8fafc;
-      border: 1px solid #334155;
+    .mockup-badge {
+      display: inline-block;
+      border: 1px dashed #2d313c;
+      background: #14161c;
+      color: #6b7280;
       padding: 8px 16px;
       border-radius: 6px;
-      font-size: 0.82rem;
-      font-family: var(--font-mono);
-      opacity: 0;
-      pointer-events: none;
-      transition: all 0.2s ease;
-      z-index: 100;
+      font-size: 0.85rem;
+      margin-bottom: 32px;
     }
 
-    .toast.show {
-      transform: translateX(-50%) translateY(0);
-      opacity: 1;
-    }
-
-    /* Footer */
-    footer {
-      margin-top: 60px;
-      padding-top: 24px;
-      border-top: 1px solid var(--border);
+    .links {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 0.8rem;
-      color: var(--text-dim);
+      justify-content: center;
+      gap: 20px;
     }
 
-    @media (max-width: 600px) {
-      body {
-        padding: 36px 18px 60px 18px;
-      }
-      .name-title {
-        font-size: 1.7rem;
-      }
-      header {
-        margin-bottom: 40px;
-      }
-      footer {
-        flex-direction: column;
-        gap: 8px;
-        align-items: flex-start;
-      }
+    .links a {
+      color: #9ca3af;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.15s ease;
+    }
+
+    .links a:hover {
+      color: #ffffff;
     }
   </style>
 </head>
 <body>
+  <main class="container">
+    <h1>Seif Spitan</h1>
+    <p class="subtitle">Software Engineer</p>
 
-  <div class="wrapper">
+    <div class="mockup-badge">
+      Portfolio Mockup &bull; Coming Soon
+    </div>
 
-    <!-- Top Header -->
-    <header>
-      <a href="/" class="logo">seifspitan.com</a>
-      <div class="status-indicator">
-        <span class="dot"></span>
-        <span>Portfolio Preview</span>
-      </div>
-    </header>
-
-    <!-- Main Intro -->
-    <main>
-      <div class="intro">
-        <h1 class="name-title">Seif Spitan</h1>
-        <div class="role-badge">Software Engineer &amp; Full-Stack Developer</div>
-        <div class="bio">
-          <p>
-            I build performant web applications, clean user interfaces, and robust backend systems. 
-            Focused on writing readable code, thoughtful architecture, and straightforward digital products.
-          </p>
-          <p>
-            This page is a lightweight trail preview while the full interactive portfolio is being prepared.
-          </p>
-        </div>
-      </div>
-
-      <!-- Featured Work / Projects -->
-      <section>
-        <h2 class="section-title">Selected Projects &amp; Work</h2>
-        <div class="project-list">
-
-          <a href="https://github.com/seifspitan1" target="_blank" rel="noopener noreferrer" class="project-card">
-            <div class="project-header">
-              <span class="project-name">Full-Stack Web Architecture <span class="project-arrow">&nearr;</span></span>
-            </div>
-            <p class="project-desc">
-              Modern web application design with responsive frontend interfaces, authenticated API routes, and structured database models.
-            </p>
-            <div class="tags">
-              <span class="tag">TypeScript</span>
-              <span class="tag">React</span>
-              <span class="tag">Node.js</span>
-              <span class="tag">PostgreSQL</span>
-            </div>
-          </a>
-
-          <a href="https://github.com/seifspitan1" target="_blank" rel="noopener noreferrer" class="project-card">
-            <div class="project-header">
-              <span class="project-name">API &amp; Backend Services <span class="project-arrow">&nearr;</span></span>
-            </div>
-            <p class="project-desc">
-              Lightweight RESTful microservices, caching layers, and database queries optimized for high throughput and reliable uptime.
-            </p>
-            <div class="tags">
-              <span class="tag">Python</span>
-              <span class="tag">REST APIs</span>
-              <span class="tag">Docker</span>
-              <span class="tag">Redis</span>
-            </div>
-          </a>
-
-          <a href="https://github.com/seifspitan1" target="_blank" rel="noopener noreferrer" class="project-card">
-            <div class="project-header">
-              <span class="project-name">Interface Engineering &amp; UI Systems <span class="project-arrow">&nearr;</span></span>
-            </div>
-            <p class="project-desc">
-              Clean, accessible component systems adhering to WCAG standards, fluid responsiveness, and ergonomic developer experience.
-            </p>
-            <div class="tags">
-              <span class="tag">Vanilla CSS</span>
-              <span class="tag">JavaScript</span>
-              <span class="tag">Accessibility</span>
-              <span class="tag">Performance</span>
-            </div>
-          </a>
-
-        </div>
-      </section>
-
-      <!-- Technical Stack -->
-      <section>
-        <h2 class="section-title">Technical Expertise</h2>
-        <div class="skills-grid">
-          <div class="skill-category">
-            <div class="skill-title">Frontend</div>
-            <div class="skill-items">JavaScript (ES6+), TypeScript, React, Next.js, HTML5, CSS3</div>
-          </div>
-          <div class="skill-category">
-            <div class="skill-title">Backend</div>
-            <div class="skill-items">Node.js, Express, Python, REST APIs, SQL, Relational DBs</div>
-          </div>
-          <div class="skill-category">
-            <div class="skill-title">Workflow</div>
-            <div class="skill-items">Git, GitHub, CI/CD, Linux CLI, Docker, Cloud Deployment</div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Contact / Links -->
-      <section>
-        <h2 class="section-title">Get In Touch</h2>
-        <div class="contact-links">
-          <a href="https://github.com/seifspitan1" target="_blank" rel="noopener noreferrer" class="link-btn">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-            </svg>
-            GitHub
-          </a>
-
-          <a href="mailto:spitan6@gmail.com" class="link-btn">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-              <polyline points="22,6 12,13 2,6"></polyline>
-            </svg>
-            Email
-          </a>
-
-          <button type="button" class="link-btn" id="copyEmailBtn">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-            </svg>
-            Copy Email
-          </button>
-        </div>
-      </section>
-    </main>
-
-    <!-- Footer -->
-    <footer>
-      <span>&copy; <span id="year">2026</span> Seif Spitan</span>
-      <span>Clean Craft &bull; No Bloat</span>
-    </footer>
-
-  </div>
-
-  <div class="toast" id="toast">spitan6@gmail.com copied to clipboard</div>
-
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    const copyBtn = document.getElementById('copyEmailBtn');
-    const toast = document.getElementById('toast');
-    let timeoutId;
-
-    copyBtn.addEventListener('click', () => {
-      navigator.clipboard.writeText('spitan6@gmail.com').then(() => {
-        toast.classList.add('show');
-        clearTimeout(timeoutId);
-        timeoutId = setTimeout(() => {
-          toast.classList.remove('show');
-        }, 2200);
-      }).catch(() => {
-        // Fallback
-        const input = document.createElement('input');
-        input.value = 'spitan6@gmail.com';
-        document.body.appendChild(input);
-        input.select();
-        document.execCommand('copy');
-        document.body.removeChild(input);
-        toast.classList.add('show');
-        clearTimeout(timeoutId);
-        timeoutId = setTimeout(() => {
-          toast.classList.remove('show');
-        }, 2200);
-      });
-    });
-  </script>
+    <div class="links">
+      <a href="https://github.com/seifspitan1" target="_blank" rel="noopener">GitHub</a>
+      <a href="mailto:spitan6@gmail.com">Email</a>
+    </div>
+  </main>
 </body>
 </html>
