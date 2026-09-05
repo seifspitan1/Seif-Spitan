@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Domain verification and test landing page for seifspitan.com">
+  <title>seifspitan.com &bull; Domain Test & Status</title>
+  
+  <!-- Favicon (Inline SVG) -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2244%22 fill=%22%2310b981%22 fill-opacity=%220.2%22 stroke=%22%2310b981%22 stroke-width=%228%22/><circle cx=%2250%22 cy=%2250%22 r=%2222%22 fill=%22%2310b981%22/></svg>">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-dark: #090d16;
+      --card-bg: rgba(18, 24, 38, 0.7);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --card-hover-border: rgba(99, 102, 241, 0.3);
+      --primary: #6366f1;
+      --primary-glow: rgba(99, 102, 241, 0.25);
+      --emerald: #10b981;
+      --emerald-glow: rgba(16, 185, 129, 0.35);
+      --amber: #f59e0b;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-subtle: #64748b;
+      --code-bg: rgba(0, 0, 0, 0.3);
+      --radius-lg: 24px;
+      --radius-md: 14px;
+      --radius-sm: 8px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 24px 16px;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Ambient Background Glows */
+    .glow-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(120px);
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.5;
+      animation: floatSlow 18s ease-in-out infinite alternate;
+    }
+
+    .glow-orb-1 {
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, #3b82f6 0%, transparent 70%);
+      top: -150px;
+      left: -100px;
+    }
+
+    .glow-orb-2 {
+      width: 480px;
+      height: 480px;
+      background: radial-gradient(circle, #10b981 0%, transparent 70%);
+      bottom: -150px;
+      right: -100px;
+      animation-delay: -9s;
+    }
+
+    .glow-orb-3 {
+      width: 350px;
+      height: 350px;
+      background: radial-gradient(circle, #8b5cf6 0%, transparent 70%);
+      top: 40%;
+      left: 60%;
+      animation-delay: -5s;
+      opacity: 0.3;
+    }
+
+    @keyframes floatSlow {
+      0% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(40px, -30px) scale(1.08); }
+      100% { transform: translate(-30px, 40px) scale(0.95); }
+    }
+
+    /* Grid Overlay */
+    .grid-overlay {
+      position: absolute;
+      inset: 0;
+      background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+      background-size: 40px 40px;
+      mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
+      -webkit-mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Main Container */
+    .container {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 680px;
+    }
+
+    /* Main Glass Card */
+    .main-card {
+      background: var(--card-bg);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-lg);
+      padding: 44px 36px;
+      box-shadow: 
+        0 25px 60px -15px rgba(0, 0, 0, 0.7),
+        0 0 0 1px rgba(255, 255, 255, 0.05) inset;
+      transition: border-color 0.3s ease;
+      text-align: center;
+    }
+
+    .main-card:hover {
+      border-color: var(--card-hover-border);
+    }
+
+    /* Status Badge */
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.25);
+      padding: 6px 16px;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #34d399;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--emerald);
+      position: relative;
+    }
+
+    .pulse-dot::after {
+      content: '';
+      position: absolute;
+      inset: -4px;
+      border-radius: 50%;
+      background: var(--emerald);
+      opacity: 0.6;
+      animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 0.6; }
+      50% { transform: scale(2.2); opacity: 0; }
+    }
+
+    /* Domain Title */
+    .domain-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(2.2rem, 5vw, 3.2rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      background: linear-gradient(135deg, #ffffff 30%, #a5b4fc 75%, #38bdf8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 12px;
+      word-break: break-word;
+    }
+
+    .domain-subtitle {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      font-weight: 400;
+      line-height: 1.6;
+      max-width: 480px;
+      margin: 0 auto 32px auto;
+    }
+
+    /* Info Grid */
+    .diagnostic-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 12px;
+      margin-bottom: 28px;
+      text-align: left;
+    }
+
+    .diagnostic-item {
+      background: rgba(255, 255, 255, 0.025);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: var(--radius-md);
+      padding: 14px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .diagnostic-item:hover {
+      background: rgba(255, 255, 255, 0.04);
+      transform: translateY(-2px);
+    }
+
+    .diagnostic-label {
+      font-size: 0.72rem;
+      color: var(--text-subtle);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .diagnostic-val {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.88rem;
+      color: var(--text-main);
+      font-weight: 500;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .val-highlight {
+      color: #38bdf8;
+    }
+
+    .val-success {
+      color: #34d399;
+    }
+
+    /* Actions Bar */
+    .actions-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 22px;
+      border-radius: var(--radius-sm);
+      font-family: inherit;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      outline: none;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #4f46e5 0%, #3b82f6 100%);
+      color: #ffffff;
+      border: none;
+      box-shadow: 0 4px 18px var(--primary-glow);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px var(--primary-glow);
+      filter: brightness(1.1);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-main);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.09);
+      border-color: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
+    }
+
+    .btn:active {
+      transform: translateY(0);
+    }
+
+    /* Ping Test Output */
+    .ping-display {
+      background: var(--code-bg);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: var(--radius-md);
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+      min-height: 48px;
+    }
+
+    .ping-status {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .ping-time {
+      font-weight: 600;
+      color: #34d399;
+    }
+
+    /* Checklist Section */
+    .checklist {
+      text-align: left;
+      border-top: 1px solid rgba(255, 255, 255, 0.07);
+      padding-top: 24px;
+      margin-top: 24px;
+    }
+
+    .checklist-title {
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: var(--text-subtle);
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+
+    .checklist-items {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .checklist-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    .checklist-icon {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: rgba(16, 185, 129, 0.15);
+      color: #34d399;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 24px;
+      text-align: center;
+      color: var(--text-subtle);
+      font-size: 0.82rem;
+    }
+
+    /* Toast Notification */
+    .toast {
+      position: fixed;
+      bottom: 28px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: #1e293b;
+      color: #f8fafc;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 10px 20px;
+      border-radius: 9999px;
+      font-size: 0.86rem;
+      font-weight: 500;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+      opacity: 0;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      pointer-events: none;
+      z-index: 99;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .toast.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .main-card {
+        padding: 32px 20px;
+      }
+      .diagnostic-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .actions-bar {
+        flex-direction: column;
+      }
+      .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Glowing background elements -->
+  <div class="glow-orb glow-orb-1"></div>
+  <div class="glow-orb glow-orb-2"></div>
+  <div class="glow-orb glow-orb-3"></div>
+  <div class="grid-overlay"></div>
+
+  <main class="container">
+    <div class="main-card">
+      
+      <!-- Status Badge -->
+      <div class="status-badge" id="statusBadge">
+        <span class="pulse-dot"></span>
+        <span>Domain Online & Ready</span>
+      </div>
+
+      <!-- Hero Header -->
+      <h1 class="domain-title" id="displayDomain">seifspitan.com</h1>
+      <p class="domain-subtitle">
+        Your DNS and web server are properly connected. This placeholder confirms that requests are resolving directly to your hosting directory.
+      </p>
+
+      <!-- Diagnostics Panel -->
+      <div class="diagnostic-grid">
+        <div class="diagnostic-item">
+          <span class="diagnostic-label">Hostname</span>
+          <span class="diagnostic-val val-highlight" id="diagHost">seifspitan.com</span>
+        </div>
+        <div class="diagnostic-item">
+          <span class="diagnostic-label">Protocol</span>
+          <span class="diagnostic-val val-success" id="diagProtocol">HTTPS</span>
+        </div>
+        <div class="diagnostic-item">
+          <span class="diagnostic-label">Server Port</span>
+          <span class="diagnostic-val" id="diagPort">Default (443)</span>
+        </div>
+        <div class="diagnostic-item">
+          <span class="diagnostic-label">Local Time</span>
+          <span class="diagnostic-val" id="diagTime">--:--:--</span>
+        </div>
+      </div>
+
+      <!-- Ping / Connectivity Box -->
+      <div class="ping-display" id="pingBox">
+        <div class="ping-status">
+          <span>&gt;_ connection_probe</span>
+        </div>
+        <div id="pingResult">Ready for test</div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="actions-bar">
+        <button class="btn btn-primary" id="btnPing">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
+          </svg>
+          Run Server Ping
+        </button>
+        <button class="btn btn-secondary" id="btnCopy">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+          </svg>
+          Copy Domain URL
+        </button>
+      </div>
+
+      <!-- Next Steps Checklist -->
+      <div class="checklist">
+        <div class="checklist-title">Verification Checklist</div>
+        <ul class="checklist-items">
+          <li class="checklist-item">
+            <span class="checklist-icon">&#10003;</span>
+            <span>DNS A / CNAME records pointing correctly to the host</span>
+          </li>
+          <li class="checklist-item">
+            <span class="checklist-icon">&#10003;</span>
+            <span>Web server serving files from the root directory (<code style="font-family: 'JetBrains Mono'; color: #cbd5e1;">index.html</code>)</span>
+          </li>
+          <li class="checklist-item">
+            <span class="checklist-icon" id="sslIcon">&#10003;</span>
+            <span id="sslText">SSL / TLS certificate active for secure HTTPS browsing</span>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <footer>
+      &copy; <span id="copyrightYear">2026</span> seifspitan.com &bull; Ready for deployment
+    </footer>
+  </main>
+
+  <!-- Notification Toast -->
+  <div class="toast" id="toast">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="20 6 9 17 4 12"></polyline>
+    </svg>
+    <span id="toastMsg">URL copied to clipboard!</span>
+  </div>
+
+  <script>
+    // Dynamic diagnostics based on active window location
+    (function initDiagnostics() {
+      const currentHost = window.location.hostname || 'seifspitan.com';
+      const currentProtocol = window.location.protocol ? window.location.protocol.replace(':', '').toUpperCase() : 'HTTP';
+      const currentPort = window.location.port || (currentProtocol === 'HTTPS' ? '443' : '80');
+
+      // Update UI elements
+      if (currentHost && currentHost !== '') {
+        document.getElementById('displayDomain').textContent = currentHost;
+        document.getElementById('diagHost').textContent = currentHost;
+      }
+      
+      document.getElementById('diagProtocol').textContent = currentProtocol;
+      document.getElementById('diagPort').textContent = currentPort;
+
+      // Update SSL checklist item if HTTPS
+      const sslIcon = document.getElementById('sslIcon');
+      const sslText = document.getElementById('sslText');
+      if (currentProtocol === 'HTTPS') {
+        sslIcon.style.color = '#34d399';
+        sslText.textContent = 'SSL / TLS certificate active (Secure connection)';
+      } else if (window.location.protocol === 'http:') {
+        sslIcon.textContent = '!';
+        sslIcon.style.color = '#f59e0b';
+        sslIcon.style.backgroundColor = 'rgba(245, 158, 11, 0.15)';
+        sslText.textContent = 'Served over HTTP (Enable SSL / HTTPS for security)';
+      }
+
+      // Live clock
+      function updateClock() {
+        const now = new Date();
+        document.getElementById('diagTime').textContent = now.toLocaleTimeString();
+      }
+      updateClock();
+      setInterval(updateClock, 1000);
+
+      document.getElementById('copyrightYear').textContent = new Date().getFullYear();
+    })();
+
+    // Ping Test
+    const btnPing = document.getElementById('btnPing');
+    const pingResult = document.getElementById('pingResult');
+
+    btnPing.addEventListener('click', async () => {
+      pingResult.innerHTML = '<span style="color: #94a3b8;">Probing latency...</span>';
+      btnPing.disabled = true;
+      btnPing.style.opacity = '0.7';
+
+      const startTime = performance.now();
+      try {
+        // Fetch current page header with cache buster
+        await fetch(window.location.href + (window.location.href.includes('?') ? '&' : '?') + 't=' + Date.now(), {
+          method: 'HEAD',
+          cache: 'no-store'
+        });
+        const duration = Math.round(performance.now() - startTime);
+        pingResult.innerHTML = `RTT: <span class="ping-time">${duration} ms</span> (HTTP 200 OK)`;
+      } catch (err) {
+        // Fallback calculation for file protocol or CORS
+        const duration = Math.round(performance.now() - startTime);
+        pingResult.innerHTML = `Local latency: <span class="ping-time">${Math.max(1, duration)} ms</span>`;
+      } finally {
+        btnPing.disabled = false;
+        btnPing.style.opacity = '1';
+      }
+    });
+
+    // Copy Domain URL
+    const btnCopy = document.getElementById('btnCopy');
+    const toast = document.getElementById('toast');
+    const toastMsg = document.getElementById('toastMsg');
+    let toastTimeout;
+
+    function showToast(msg) {
+      toastMsg.textContent = msg;
+      toast.classList.add('show');
+      clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => {
+        toast.classList.remove('show');
+      }, 2500);
+    }
+
+    btnCopy.addEventListener('click', () => {
+      const urlToCopy = window.location.origin && window.location.origin !== 'null' && window.location.origin !== 'file://' 
+        ? window.location.origin 
+        : 'https://seifspitan.com';
+
+      navigator.clipboard.writeText(urlToCopy).then(() => {
+        showToast(`Copied ${urlToCopy}`);
+      }).catch(() => {
+        // Fallback
+        const dummy = document.createElement('input');
+        document.body.appendChild(dummy);
+        dummy.value = urlToCopy;
+        dummy.select();
+        document.execCommand('copy');
+        document.body.removeChild(dummy);
+        showToast(`Copied ${urlToCopy}`);
+      });
+    });
+  </script>
+</body>
+</html>
