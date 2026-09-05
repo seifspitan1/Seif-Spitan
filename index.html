@@ -2811,17 +2811,10 @@
       const shadowTrackEl = document.querySelector('.intro-shadow-track');
       const ambientGlowEl = document.querySelector('.intro-ambient-glow');
 
-      // Check session playback behavior
+      // URL parameters
       const params = new URLSearchParams(window.location.search);
       const forceReplay = params.get('intro') === '1' || params.get('replay') === '1';
       const isFrozen = params.get('freeze') === '1';
-      let hasSeenIntro = false;
-
-      try {
-        hasSeenIntro = sessionStorage.getItem('hasSeenIntro') === 'true';
-      } catch (err) {
-        hasSeenIntro = false;
-      }
 
       function showStayTunedImmediately() {
         if (terminalEl) {
@@ -2838,8 +2831,9 @@
         if (ambientGlowEl) ambientGlowEl.style.display = 'none';
       }
 
-      // If already viewed in this browser session and not forcing replay, immediately show STAY TUNED
-      if (hasSeenIntro && !forceReplay && !isFrozen) {
+      // Check reduced motion preference (accessibility)
+      const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (prefersReducedMotion && !forceReplay && !isFrozen) {
         showStayTunedImmediately();
         return;
       }
@@ -2847,20 +2841,6 @@
       // Lock scrolling during experience
       document.documentElement.style.overflow = 'hidden';
       document.body.style.overflow = 'hidden';
-
-      // Mark as seen for this session
-      try {
-        sessionStorage.setItem('hasSeenIntro', 'true');
-      } catch (err) {
-        // Ignore storage exceptions
-      }
-
-      // Check reduced motion preference
-      const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      if (prefersReducedMotion && !forceReplay && !isFrozen) {
-        showStayTunedImmediately();
-        return;
-      }
 
       function launchSculptureIntro() {
         introEl.classList.add('sculpture-started');
