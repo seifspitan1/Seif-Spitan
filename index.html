@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Seif Spitan</title>
+  <title>Seif Spitan - Software Engineer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
   <style>
     * {
       box-sizing: border-box;
@@ -40,8 +42,10 @@
       /* Motion Timeline */
       --word-fall-delay: 0.00s;
       --word-motion-duration: 3.40s;
-      --word-rest-time: 3.40s; /* Motion completes and reaches rest at 3.40s */
-      --word-light-delay: 3.78s; /* Exactly 380ms of dark physical stillness (3.40s + 0.38s = 3.78s) */
+      --word-rest-time: 3.40s;
+      /* Motion completes and reaches rest at 3.40s */
+      --word-light-delay: 3.78s;
+      /* Exactly 380ms of dark physical stillness (3.40s + 0.38s = 3.78s) */
       --word-light-duration: 1.35s;
       --word-exit-time: 5.20s;
 
@@ -64,7 +68,8 @@
       inset: 0;
       width: 100vw;
       height: 100vh;
-      background-color: #030406; /* Pitch black backdrop behind window */
+      background-color: #030406;
+      /* Pitch black backdrop behind window */
       z-index: 100000;
       display: flex;
       align-items: center;
@@ -86,8 +91,10 @@
     .terminal-window {
       width: min(760px, 94vw);
       min-height: clamp(380px, 52vh, 450px);
-      background-color: #08090d; /* Dark/near-black terminal surface */
-      border: 1px solid rgba(255, 255, 255, 0.14); /* Thin subtle terminal frame */
+      background-color: #08090d;
+      /* Dark/near-black terminal surface */
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      /* Thin subtle terminal frame */
       border-radius: 6px;
       box-shadow:
         0 24px 60px rgba(0, 0, 0, 0.90),
@@ -102,7 +109,8 @@
     /* Terminal Title Bar */
     .terminal-title-bar {
       height: 36px;
-      background-color: #12151c; /* Distinct darker titlebar header */
+      background-color: #12151c;
+      /* Distinct darker titlebar header */
       border-bottom: 1px solid rgba(255, 255, 255, 0.08);
       display: flex;
       align-items: center;
@@ -125,9 +133,20 @@
       display: inline-block;
     }
 
-    .control-dot.close { background-color: #ef4444; opacity: 0.85; }
-    .control-dot.minimize { background-color: #eab308; opacity: 0.85; }
-    .control-dot.zoom { background-color: #22c55e; opacity: 0.85; }
+    .control-dot.close {
+      background-color: #ef4444;
+      opacity: 0.85;
+    }
+
+    .control-dot.minimize {
+      background-color: #eab308;
+      opacity: 0.85;
+    }
+
+    .control-dot.zoom {
+      background-color: #22c55e;
+      opacity: 0.85;
+    }
 
     .terminal-title-text {
       font-family: Consolas, 'Cascadia Mono', 'Courier New', Menlo, monospace;
@@ -164,7 +183,8 @@
     }
 
     .cmd-prompt {
-      color: #38ef7d; /* Clean authentic terminal green */
+      color: #38ef7d;
+      /* Clean authentic terminal green */
       font-weight: 700;
       margin-right: 0.55em;
       flex-shrink: 0;
@@ -189,7 +209,9 @@
     }
 
     @keyframes termBlink {
-      to { visibility: hidden; }
+      to {
+        visibility: hidden;
+      }
     }
 
     .terminal-init-row {
@@ -197,7 +219,8 @@
     }
 
     .init-text {
-      color: #94a3b8; /* Terminal neutral grey */
+      color: #94a3b8;
+      /* Terminal neutral grey */
       font-weight: 500;
     }
 
@@ -225,7 +248,8 @@
     }
 
     .check-status {
-      color: #4ade80; /* Vibrant success green */
+      color: #4ade80;
+      /* Vibrant success green */
       font-weight: 700;
       letter-spacing: 0.04em;
       margin-left: 1.5em;
@@ -248,7 +272,8 @@
     }
 
     .system-tag {
-      color: #38bdf8; /* Terminal cyan / sky blue badge */
+      color: #38bdf8;
+      /* Terminal cyan / sky blue badge */
       font-weight: 700;
       letter-spacing: 0.02em;
       flex-shrink: 0;
@@ -270,14 +295,17 @@
       .terminal-boot-screen {
         padding: 10px;
       }
+
       .terminal-window {
         width: 98vw;
         min-height: clamp(340px, 48vh, 400px);
       }
+
       .terminal-body {
         padding: 14px 12px;
         font-size: clamp(0.68rem, 2.95vw, 0.82rem);
       }
+
       .check-status {
         margin-left: 0.5em;
       }
@@ -301,7 +329,8 @@
       inset: 0;
       width: 100vw;
       height: 100vh;
-      background-color: #060709; /* Deep, near-pitch cinematic black */
+      background-color: #060709;
+      /* Deep, near-pitch cinematic black */
       z-index: 99999;
       display: flex;
       align-items: center;
@@ -385,6 +414,7 @@
        800-1000ms: Violent breakdown to complete instant blackout
        ========================================================================== */
     @keyframes endingFlickerToBlackout {
+
       /* 0ms - 200ms: Subtle trembling begins */
       0.0% {
         color: #ffffff;
@@ -394,30 +424,37 @@
           0 0 36px rgba(240, 246, 255, 0.55),
           0 0 72px rgba(220, 235, 255, 0.24);
       }
+
       2.5% {
         color: #f2f6fa;
         text-shadow: 0 0 3px rgba(255, 255, 255, 0.95), 0 0 9px rgba(255, 255, 255, 0.86), 0 0 21px rgba(240, 246, 255, 0.40);
       }
+
       5.0% {
         color: #fcfdfe;
         text-shadow: 0 0 3px #ffffff, 0 0 10px rgba(255, 255, 255, 0.91), 0 0 24px rgba(240, 246, 255, 0.45);
       }
+
       8.0% {
         color: #e8eff7;
         text-shadow: 0 0 3px rgba(255, 255, 255, 0.92), 0 0 9px rgba(255, 255, 255, 0.82), 0 0 20px rgba(240, 246, 255, 0.36);
       }
+
       11.0% {
         color: #fafbfc;
         text-shadow: 0 0 3px #ffffff, 0 0 10px rgba(255, 255, 255, 0.90), 0 0 23px rgba(240, 246, 255, 0.44);
       }
+
       14.0% {
         color: #dce4f1;
         text-shadow: 0 0 3px rgba(255, 255, 255, 0.88), 0 0 9px rgba(255, 255, 255, 0.75), 0 0 19px rgba(240, 246, 255, 0.32);
       }
+
       17.0% {
         color: #f7f9fc;
         text-shadow: 0 0 3px #ffffff, 0 0 10px rgba(255, 255, 255, 0.88), 0 0 22px rgba(240, 246, 255, 0.42);
       }
+
       20.0% {
         color: #d1dbec;
         text-shadow: 0 0 3px rgba(255, 255, 255, 0.84), 0 0 8px rgba(255, 255, 255, 0.68), 0 0 18px rgba(240, 246, 255, 0.28);
@@ -428,38 +465,47 @@
         color: #f7f9fc;
         text-shadow: 0 0 3px #ffffff, 0 0 10px rgba(255, 255, 255, 0.88), 0 0 22px rgba(240, 246, 255, 0.42);
       }
+
       26.0% {
         color: #bec9de;
         text-shadow: 0 0 2px rgba(255, 255, 255, 0.75), 0 0 7px rgba(255, 255, 255, 0.58), 0 0 16px rgba(240, 246, 255, 0.24);
       }
+
       29.0% {
         color: #f2f5fa;
         text-shadow: 0 0 3px #ffffff, 0 0 9px rgba(255, 255, 255, 0.85), 0 0 21px rgba(240, 246, 255, 0.40);
       }
+
       32.0% {
         color: #b0bfd8;
         text-shadow: 0 0 2px rgba(255, 255, 255, 0.68), 0 0 6px rgba(255, 255, 255, 0.48), 0 0 14px rgba(240, 246, 255, 0.18);
       }
+
       35.0% {
         color: #f0f4fa;
         text-shadow: 0 0 3px rgba(255, 255, 255, 0.96), 0 0 9px rgba(255, 255, 255, 0.84), 0 0 20px rgba(240, 246, 255, 0.38);
       }
+
       38.0% {
         color: #9fadcb;
         text-shadow: 0 0 2px rgba(255, 255, 255, 0.60), 0 0 6px rgba(255, 255, 255, 0.42), 0 0 12px rgba(240, 246, 255, 0.16);
       }
+
       41.0% {
         color: #f5f8fc;
         text-shadow: 0 0 3px #ffffff, 0 0 9px rgba(255, 255, 255, 0.86), 0 0 22px rgba(240, 246, 255, 0.42);
       }
+
       44.0% {
         color: #95a3bf;
         text-shadow: 0 0 2px rgba(255, 255, 255, 0.55), 0 0 5px rgba(255, 255, 255, 0.38), 0 0 11px rgba(240, 246, 255, 0.14);
       }
+
       47.0% {
         color: #edf2f9;
         text-shadow: 0 0 3px rgba(255, 255, 255, 0.95), 0 0 9px rgba(255, 255, 255, 0.82), 0 0 20px rgba(240, 246, 255, 0.38);
       }
+
       50.0% {
         color: #8492ac;
         text-shadow: 0 0 2px rgba(255, 255, 255, 0.48), 0 0 6px rgba(255, 255, 255, 0.32), 0 0 12px rgba(240, 246, 255, 0.12);
@@ -470,46 +516,57 @@
         color: #f7f9fc;
         text-shadow: 0 0 3px #ffffff, 0 0 10px rgba(255, 255, 255, 0.88), 0 0 22px rgba(240, 246, 255, 0.42);
       }
+
       55.0% {
         color: #727f99;
         text-shadow: 0 0 2px rgba(255, 255, 255, 0.40), 0 0 5px rgba(255, 255, 255, 0.25), 0 0 10px rgba(240, 246, 255, 0.10);
       }
+
       57.5% {
         color: #e5ebf4;
         text-shadow: 0 0 3px #ffffff, 0 0 8px rgba(255, 255, 255, 0.80), 0 0 18px rgba(240, 246, 255, 0.35);
       }
+
       60.0% {
         color: #65718a;
         text-shadow: 0 0 2px rgba(255, 255, 255, 0.35), 0 0 5px rgba(255, 255, 255, 0.20);
       }
+
       62.5% {
         color: #f0f4fa;
         text-shadow: 0 0 3px rgba(255, 255, 255, 0.96), 0 0 9px rgba(255, 255, 255, 0.84), 0 0 20px rgba(240, 246, 255, 0.38);
       }
+
       65.0% {
         color: #556077;
         text-shadow: 0 0 2px rgba(255, 255, 255, 0.28), 0 0 4px rgba(255, 255, 255, 0.15);
       }
+
       67.5% {
         color: #f5f8fc;
         text-shadow: 0 0 3px #ffffff, 0 0 9px rgba(255, 255, 255, 0.86), 0 0 22px rgba(240, 246, 255, 0.42);
       }
+
       70.0% {
         color: #4a546a;
         text-shadow: 0 0 2px rgba(255, 255, 255, 0.22);
       }
+
       72.5% {
         color: #edf2f9;
         text-shadow: 0 0 3px rgba(255, 255, 255, 0.95), 0 0 9px rgba(255, 255, 255, 0.82), 0 0 20px rgba(240, 246, 255, 0.38);
       }
+
       75.0% {
         color: #3e475a;
         text-shadow: 0 0 2px rgba(255, 255, 255, 0.18);
       }
+
       77.5% {
         color: #e2e7f2;
         text-shadow: 0 0 3px #ffffff, 0 0 7px rgba(255, 255, 255, 0.72), 0 0 16px rgba(240, 246, 255, 0.30);
       }
+
       80.0% {
         color: #353d4f;
         text-shadow: 0 0 2px rgba(255, 255, 255, 0.12);
@@ -520,42 +577,52 @@
         color: #f8fafc;
         text-shadow: 0 0 3px #ffffff, 0 0 10px rgba(255, 255, 255, 0.88), 0 0 22px rgba(240, 246, 255, 0.42);
       }
+
       84.5% {
         color: #29303e;
         text-shadow: 0 0 1px rgba(255, 255, 255, 0.10);
       }
+
       87.0% {
         color: #ffffff;
         text-shadow: 0 0 3px #ffffff, 0 0 12px rgba(255, 255, 255, 0.95), 0 0 28px rgba(240, 246, 255, 0.48);
       }
+
       89.5% {
         color: #202530;
         text-shadow: none;
       }
+
       92.0% {
         color: #dbe2ee;
         text-shadow: 0 0 3px rgba(255, 255, 255, 0.75), 0 0 8px rgba(255, 255, 255, 0.60), 0 0 18px rgba(240, 246, 255, 0.28);
       }
+
       94.5% {
         color: #161922;
         text-shadow: none;
       }
+
       97.0% {
         color: #6d788e;
         text-shadow: 0 0 2px rgba(255, 255, 255, 0.35);
       }
+
       98.5% {
         color: #101217;
         text-shadow: none;
       }
+
       99.2% {
         color: #2c3240;
         text-shadow: 0 0 1px rgba(255, 255, 255, 0.10);
       }
+
       99.8% {
         color: #0e1014;
         text-shadow: none;
       }
+
       /* 100.0% (1000ms): COMPLETE INSTANT BLACKOUT (<0.5ms) */
       100.0% {
         color: #060709;
@@ -564,100 +631,379 @@
     }
 
     @keyframes endingExtrusionFlicker {
-      0.0% { color: #5d677d; text-shadow: 0 0 5px rgba(255, 255, 255, 0.25); }
-      2.5% { color: #565f72; text-shadow: 0 0 3px rgba(255, 255, 255, 0.18); }
-      5.0% { color: #5a6478; text-shadow: 0 0 3px rgba(255, 255, 255, 0.20); }
-      8.0% { color: #525a6e; text-shadow: 0 0 2px rgba(255, 255, 255, 0.14); }
-      11.0% { color: #596377; text-shadow: 0 0 3px rgba(255, 255, 255, 0.20); }
-      14.0% { color: #4e5668; text-shadow: 0 0 2px rgba(255, 255, 255, 0.12); }
-      17.0% { color: #586175; text-shadow: 0 0 3px rgba(255, 255, 255, 0.18); }
-      20.0% { color: #495163; text-shadow: 0 0 1px rgba(255, 255, 255, 0.10); }
+      0.0% {
+        color: #5d677d;
+        text-shadow: 0 0 5px rgba(255, 255, 255, 0.25);
+      }
 
-      23.0% { color: #586175; text-shadow: 0 0 3px rgba(255, 255, 255, 0.18); }
-      26.0% { color: #454d5d; text-shadow: 0 0 1px rgba(255, 255, 255, 0.10); }
-      29.0% { color: #565f72; text-shadow: 0 0 3px rgba(255, 255, 255, 0.18); }
-      32.0% { color: #3e4654; text-shadow: none; }
-      35.0% { color: #565f72; text-shadow: 0 0 3px rgba(255, 255, 255, 0.18); }
-      38.0% { color: #3c4452; text-shadow: none; }
-      41.0% { color: #586175; text-shadow: 0 0 3px rgba(255, 255, 255, 0.18); }
-      44.0% { color: #383e4d; text-shadow: none; }
-      47.0% { color: #565f72; text-shadow: 0 0 3px rgba(255, 255, 255, 0.18); }
-      50.0% { color: #333946; text-shadow: none; }
+      2.5% {
+        color: #565f72;
+        text-shadow: 0 0 3px rgba(255, 255, 255, 0.18);
+      }
 
-      52.5% { color: #586175; text-shadow: 0 0 3px rgba(255, 255, 255, 0.18); }
-      55.0% { color: #2e3441; text-shadow: none; }
-      57.5% { color: #545d70; text-shadow: 0 0 3px rgba(255, 255, 255, 0.16); }
-      60.0% { color: #282d38; text-shadow: none; }
-      62.5% { color: #565f72; text-shadow: 0 0 3px rgba(255, 255, 255, 0.18); }
-      65.0% { color: #232832; text-shadow: none; }
-      67.5% { color: #586175; text-shadow: 0 0 3px rgba(255, 255, 255, 0.18); }
-      70.0% { color: #1e222b; text-shadow: none; }
-      72.5% { color: #525b6e; text-shadow: 0 0 3px rgba(255, 255, 255, 0.15); }
-      75.0% { color: #1a1e26; text-shadow: none; }
-      77.5% { color: #525a6e; text-shadow: 0 0 3px rgba(255, 255, 255, 0.16); }
-      80.0% { color: #161920; text-shadow: none; }
+      5.0% {
+        color: #5a6478;
+        text-shadow: 0 0 3px rgba(255, 255, 255, 0.20);
+      }
 
-      82.0% { color: #586175; text-shadow: 0 0 4px rgba(255, 255, 255, 0.20); }
-      84.5% { color: #12141a; text-shadow: none; }
-      87.0% { color: #5a6478; text-shadow: 0 0 4px rgba(255, 255, 255, 0.22); }
-      89.5% { color: #0e1014; text-shadow: none; }
-      92.0% { color: #4e5668; text-shadow: 0 0 2px rgba(255, 255, 255, 0.12); }
-      94.5% { color: #0b0c10; text-shadow: none; }
-      97.0% { color: #333845; text-shadow: none; }
-      98.5% { color: #08090b; text-shadow: none; }
-      99.2% { color: #1e222b; text-shadow: none; }
-      100.0% { color: #060709; text-shadow: none; }
+      8.0% {
+        color: #525a6e;
+        text-shadow: 0 0 2px rgba(255, 255, 255, 0.14);
+      }
+
+      11.0% {
+        color: #596377;
+        text-shadow: 0 0 3px rgba(255, 255, 255, 0.20);
+      }
+
+      14.0% {
+        color: #4e5668;
+        text-shadow: 0 0 2px rgba(255, 255, 255, 0.12);
+      }
+
+      17.0% {
+        color: #586175;
+        text-shadow: 0 0 3px rgba(255, 255, 255, 0.18);
+      }
+
+      20.0% {
+        color: #495163;
+        text-shadow: 0 0 1px rgba(255, 255, 255, 0.10);
+      }
+
+      23.0% {
+        color: #586175;
+        text-shadow: 0 0 3px rgba(255, 255, 255, 0.18);
+      }
+
+      26.0% {
+        color: #454d5d;
+        text-shadow: 0 0 1px rgba(255, 255, 255, 0.10);
+      }
+
+      29.0% {
+        color: #565f72;
+        text-shadow: 0 0 3px rgba(255, 255, 255, 0.18);
+      }
+
+      32.0% {
+        color: #3e4654;
+        text-shadow: none;
+      }
+
+      35.0% {
+        color: #565f72;
+        text-shadow: 0 0 3px rgba(255, 255, 255, 0.18);
+      }
+
+      38.0% {
+        color: #3c4452;
+        text-shadow: none;
+      }
+
+      41.0% {
+        color: #586175;
+        text-shadow: 0 0 3px rgba(255, 255, 255, 0.18);
+      }
+
+      44.0% {
+        color: #383e4d;
+        text-shadow: none;
+      }
+
+      47.0% {
+        color: #565f72;
+        text-shadow: 0 0 3px rgba(255, 255, 255, 0.18);
+      }
+
+      50.0% {
+        color: #333946;
+        text-shadow: none;
+      }
+
+      52.5% {
+        color: #586175;
+        text-shadow: 0 0 3px rgba(255, 255, 255, 0.18);
+      }
+
+      55.0% {
+        color: #2e3441;
+        text-shadow: none;
+      }
+
+      57.5% {
+        color: #545d70;
+        text-shadow: 0 0 3px rgba(255, 255, 255, 0.16);
+      }
+
+      60.0% {
+        color: #282d38;
+        text-shadow: none;
+      }
+
+      62.5% {
+        color: #565f72;
+        text-shadow: 0 0 3px rgba(255, 255, 255, 0.18);
+      }
+
+      65.0% {
+        color: #232832;
+        text-shadow: none;
+      }
+
+      67.5% {
+        color: #586175;
+        text-shadow: 0 0 3px rgba(255, 255, 255, 0.18);
+      }
+
+      70.0% {
+        color: #1e222b;
+        text-shadow: none;
+      }
+
+      72.5% {
+        color: #525b6e;
+        text-shadow: 0 0 3px rgba(255, 255, 255, 0.15);
+      }
+
+      75.0% {
+        color: #1a1e26;
+        text-shadow: none;
+      }
+
+      77.5% {
+        color: #525a6e;
+        text-shadow: 0 0 3px rgba(255, 255, 255, 0.16);
+      }
+
+      80.0% {
+        color: #161920;
+        text-shadow: none;
+      }
+
+      82.0% {
+        color: #586175;
+        text-shadow: 0 0 4px rgba(255, 255, 255, 0.20);
+      }
+
+      84.5% {
+        color: #12141a;
+        text-shadow: none;
+      }
+
+      87.0% {
+        color: #5a6478;
+        text-shadow: 0 0 4px rgba(255, 255, 255, 0.22);
+      }
+
+      89.5% {
+        color: #0e1014;
+        text-shadow: none;
+      }
+
+      92.0% {
+        color: #4e5668;
+        text-shadow: 0 0 2px rgba(255, 255, 255, 0.12);
+      }
+
+      94.5% {
+        color: #0b0c10;
+        text-shadow: none;
+      }
+
+      97.0% {
+        color: #333845;
+        text-shadow: none;
+      }
+
+      98.5% {
+        color: #08090b;
+        text-shadow: none;
+      }
+
+      99.2% {
+        color: #1e222b;
+        text-shadow: none;
+      }
+
+      100.0% {
+        color: #060709;
+        text-shadow: none;
+      }
     }
 
     @keyframes endingAmbientFlicker {
-      0.0% { opacity: 0.86; }
-      2.5% { opacity: 0.80; }
-      5.0% { opacity: 0.85; }
-      8.0% { opacity: 0.74; }
-      11.0% { opacity: 0.84; }
-      14.0% { opacity: 0.68; }
-      17.0% { opacity: 0.82; }
-      20.0% { opacity: 0.62; }
+      0.0% {
+        opacity: 0.86;
+      }
 
-      23.0% { opacity: 0.80; }
-      26.0% { opacity: 0.54; }
-      29.0% { opacity: 0.78; }
-      32.0% { opacity: 0.46; }
-      35.0% { opacity: 0.76; }
-      38.0% { opacity: 0.40; }
-      41.0% { opacity: 0.78; }
-      44.0% { opacity: 0.35; }
-      47.0% { opacity: 0.75; }
-      50.0% { opacity: 0.28; }
+      2.5% {
+        opacity: 0.80;
+      }
 
-      52.5% { opacity: 0.80; }
-      55.0% { opacity: 0.22; }
-      57.5% { opacity: 0.72; }
-      60.0% { opacity: 0.16; }
-      62.5% { opacity: 0.74; }
-      65.0% { opacity: 0.12; }
-      67.5% { opacity: 0.76; }
-      70.0% { opacity: 0.08; }
-      72.5% { opacity: 0.70; }
-      75.0% { opacity: 0.05; }
-      77.5% { opacity: 0.65; }
-      80.0% { opacity: 0.03; }
+      5.0% {
+        opacity: 0.85;
+      }
 
-      82.0% { opacity: 0.80; }
-      84.5% { opacity: 0.02; }
-      87.0% { opacity: 0.88; }
-      89.5% { opacity: 0.01; }
-      92.0% { opacity: 0.55; }
-      94.5% { opacity: 0.00; }
-      97.0% { opacity: 0.25; }
-      98.5% { opacity: 0.00; }
-      99.2% { opacity: 0.10; }
-      100.0% { opacity: 0.00; }
+      8.0% {
+        opacity: 0.74;
+      }
+
+      11.0% {
+        opacity: 0.84;
+      }
+
+      14.0% {
+        opacity: 0.68;
+      }
+
+      17.0% {
+        opacity: 0.82;
+      }
+
+      20.0% {
+        opacity: 0.62;
+      }
+
+      23.0% {
+        opacity: 0.80;
+      }
+
+      26.0% {
+        opacity: 0.54;
+      }
+
+      29.0% {
+        opacity: 0.78;
+      }
+
+      32.0% {
+        opacity: 0.46;
+      }
+
+      35.0% {
+        opacity: 0.76;
+      }
+
+      38.0% {
+        opacity: 0.40;
+      }
+
+      41.0% {
+        opacity: 0.78;
+      }
+
+      44.0% {
+        opacity: 0.35;
+      }
+
+      47.0% {
+        opacity: 0.75;
+      }
+
+      50.0% {
+        opacity: 0.28;
+      }
+
+      52.5% {
+        opacity: 0.80;
+      }
+
+      55.0% {
+        opacity: 0.22;
+      }
+
+      57.5% {
+        opacity: 0.72;
+      }
+
+      60.0% {
+        opacity: 0.16;
+      }
+
+      62.5% {
+        opacity: 0.74;
+      }
+
+      65.0% {
+        opacity: 0.12;
+      }
+
+      67.5% {
+        opacity: 0.76;
+      }
+
+      70.0% {
+        opacity: 0.08;
+      }
+
+      72.5% {
+        opacity: 0.70;
+      }
+
+      75.0% {
+        opacity: 0.05;
+      }
+
+      77.5% {
+        opacity: 0.65;
+      }
+
+      80.0% {
+        opacity: 0.03;
+      }
+
+      82.0% {
+        opacity: 0.80;
+      }
+
+      84.5% {
+        opacity: 0.02;
+      }
+
+      87.0% {
+        opacity: 0.88;
+      }
+
+      89.5% {
+        opacity: 0.01;
+      }
+
+      92.0% {
+        opacity: 0.55;
+      }
+
+      94.5% {
+        opacity: 0.00;
+      }
+
+      97.0% {
+        opacity: 0.25;
+      }
+
+      98.5% {
+        opacity: 0.00;
+      }
+
+      99.2% {
+        opacity: 0.10;
+      }
+
+      100.0% {
+        opacity: 0.00;
+      }
     }
 
     @keyframes endingShadowFlicker {
-      0.0%, 99.8% { opacity: 0.88; }
-      100.0% { opacity: 0.00; }
+
+      0.0%,
+      99.8% {
+        opacity: 0.88;
+      }
+
+      100.0% {
+        opacity: 0.00;
+      }
     }
 
     .stay-tuned-text {
@@ -665,7 +1011,8 @@
       font-size: clamp(1.2rem, min(3.2vw, 4.5vh), 2.2rem);
       font-weight: 600;
       letter-spacing: 0.44em;
-      text-indent: 0.44em; /* Compensate for trailing letter-spacing to ensure optical center */
+      text-indent: 0.44em;
+      /* Compensate for trailing letter-spacing to ensure optical center */
       text-transform: uppercase;
       color: #f3f4f6;
       text-shadow:
@@ -681,13 +1028,16 @@
 
     /* Soft luminous breathing glow: continuous smooth radiance without hard transitions */
     @keyframes stayTunedBreathingGlow {
-      0%, 100% {
+
+      0%,
+      100% {
         text-shadow:
           0 0 2px rgba(255, 255, 255, 0.75),
           0 0 10px rgba(255, 255, 255, 0.30),
           0 0 22px rgba(255, 255, 255, 0.14),
           0 0 42px rgba(255, 255, 255, 0.05);
       }
+
       50% {
         text-shadow:
           0 0 3px #ffffff,
@@ -722,63 +1072,196 @@
     }
 
     @keyframes introAmbientLighting {
-      0.0%, 12.02% {
+
+      0.0%,
+      12.02% {
         opacity: 0.12;
         transform: translate(-50%, -50%) scale(0.80);
       }
+
       /* Impact 1 blackout */
-      12.04%, 12.69% {
+      12.04%,
+      12.69% {
         opacity: 0.00;
         transform: translate(-50%, -50%) scale(0.80);
       }
+
       /* Impact 1 recovery */
-      12.71%, 13.27% { opacity: 0.11; }
-      13.29%, 13.85% { opacity: 0.02; }
-      13.87%, 14.42% { opacity: 0.14; }
-      14.44%, 15.10% { opacity: 0.04; }
-      15.12%, 15.77% { opacity: 0.10; }
-      15.79%, 16.35% { opacity: 0.02; }
-      16.37%, 17.12% { opacity: 0.12; }
-      17.13%, 17.88% { opacity: 0.05; }
-      17.90%, 28.71% { opacity: 0.13; transform: translate(-50%, -50%) scale(0.88); }
+      12.71%,
+      13.27% {
+        opacity: 0.11;
+      }
+
+      13.29%,
+      13.85% {
+        opacity: 0.02;
+      }
+
+      13.87%,
+      14.42% {
+        opacity: 0.14;
+      }
+
+      14.44%,
+      15.10% {
+        opacity: 0.04;
+      }
+
+      15.12%,
+      15.77% {
+        opacity: 0.10;
+      }
+
+      15.79%,
+      16.35% {
+        opacity: 0.02;
+      }
+
+      16.37%,
+      17.12% {
+        opacity: 0.12;
+      }
+
+      17.13%,
+      17.88% {
+        opacity: 0.05;
+      }
+
+      17.90%,
+      28.71% {
+        opacity: 0.13;
+        transform: translate(-50%, -50%) scale(0.88);
+      }
+
       /* Impact 2 */
-      28.73%, 29.12% { opacity: 0.01; }
-      29.13%, 38.27% { opacity: 0.12; }
+      28.73%,
+      29.12% {
+        opacity: 0.01;
+      }
+
+      29.13%,
+      38.27% {
+        opacity: 0.12;
+      }
+
       /* Impact 3 */
-      38.29%, 38.75% { opacity: 0.03; }
-      38.77%, 47.77% { opacity: 0.12; }
+      38.29%,
+      38.75% {
+        opacity: 0.03;
+      }
+
+      38.77%,
+      47.77% {
+        opacity: 0.12;
+      }
+
       /* Rocking phase */
-      48.10%, 65.36% {
+      48.10%,
+      65.36% {
         opacity: 0.13;
         transform: translate(-50%, -50%) scale(0.95);
       }
+
       /* 3.400s - 4.050s: Post-rest continuous trembling ambient shimmer */
-      65.38% { opacity: 0.13; }
-      65.87% { opacity: 0.11; }
-      66.35% { opacity: 0.13; }
-      66.83% { opacity: 0.10; }
-      67.31% { opacity: 0.13; }
-      67.79% { opacity: 0.09; }
-      68.27% { opacity: 0.13; }
-      68.75% { opacity: 0.08; }
-      69.23% { opacity: 0.14; }
-      69.71% { opacity: 0.09; }
-      70.19% { opacity: 0.13; }
-      70.67% { opacity: 0.08; }
-      71.15% { opacity: 0.14; }
-      71.63% { opacity: 0.10; }
-      72.12% { opacity: 0.13; }
-      72.60% { opacity: 0.11; }
-      73.08% { opacity: 0.14; }
-      73.65% { opacity: 0.12; }
-      74.23% { opacity: 0.14; }
-      74.81% { opacity: 0.13; }
-      75.38% { opacity: 0.15; }
-      75.96% { opacity: 0.14; }
-      76.54% { opacity: 0.15; }
-      77.21% { opacity: 0.15; }
+      65.38% {
+        opacity: 0.13;
+      }
+
+      65.87% {
+        opacity: 0.11;
+      }
+
+      66.35% {
+        opacity: 0.13;
+      }
+
+      66.83% {
+        opacity: 0.10;
+      }
+
+      67.31% {
+        opacity: 0.13;
+      }
+
+      67.79% {
+        opacity: 0.09;
+      }
+
+      68.27% {
+        opacity: 0.13;
+      }
+
+      68.75% {
+        opacity: 0.08;
+      }
+
+      69.23% {
+        opacity: 0.14;
+      }
+
+      69.71% {
+        opacity: 0.09;
+      }
+
+      70.19% {
+        opacity: 0.13;
+      }
+
+      70.67% {
+        opacity: 0.08;
+      }
+
+      71.15% {
+        opacity: 0.14;
+      }
+
+      71.63% {
+        opacity: 0.10;
+      }
+
+      72.12% {
+        opacity: 0.13;
+      }
+
+      72.60% {
+        opacity: 0.11;
+      }
+
+      73.08% {
+        opacity: 0.14;
+      }
+
+      73.65% {
+        opacity: 0.12;
+      }
+
+      74.23% {
+        opacity: 0.14;
+      }
+
+      74.81% {
+        opacity: 0.13;
+      }
+
+      75.38% {
+        opacity: 0.15;
+      }
+
+      75.96% {
+        opacity: 0.14;
+      }
+
+      76.54% {
+        opacity: 0.15;
+      }
+
+      77.21% {
+        opacity: 0.15;
+      }
+
       /* 4.050s - 5.200s: Full stable chamber radiance through reveal */
-      77.88%, 100.0% {
+      77.88%,
+      100.0% {
         opacity: 0.86;
         transform: translate(-50%, -50%) scale(1.02);
       }
@@ -788,7 +1271,8 @@
     .intro-sculpture-stage {
       position: relative;
       perspective: 1400px;
-      perspective-origin: 50% 36%; /* Elevated cinematic camera looking down on 3D tops */
+      perspective-origin: 50% 36%;
+      /* Elevated cinematic camera looking down on 3D tops */
       display: flex;
       align-items: center;
       justify-content: center;
@@ -825,211 +1309,253 @@
         transform: translateX(0px) scale(0.76, 0.58);
         filter: blur(26.0px);
       }
+
       2.4% {
         opacity: 0.09;
         transform: translateX(0px) scale(0.77, 0.60);
         filter: blur(25.6px);
       }
+
       4.7% {
         opacity: 0.11;
         transform: translateX(1px) scale(0.80, 0.62);
         filter: blur(24.5px);
       }
+
       7.4% {
         opacity: 0.17;
         transform: translateX(1px) scale(0.83, 0.65);
         filter: blur(22.4px);
       }
+
       10.0% {
         opacity: 0.27;
         transform: translateX(1px) scale(0.86, 0.69);
         filter: blur(19.3px);
       }
+
       12.6% {
         opacity: 0.42;
         transform: translateX(1px) scale(0.90, 0.74);
         filter: blur(15.3px);
       }
+
       15.0% {
         opacity: 0.59;
         transform: translateX(2px) scale(0.94, 0.78);
         filter: blur(10.9px);
       }
+
       16.8% {
         opacity: 0.76;
         transform: translateX(2px) scale(0.97, 0.82);
         filter: blur(7.1px);
       }
+
       17.9% {
         opacity: 0.88;
         transform: translateX(2px) scale(0.99, 0.84);
         filter: blur(4.4px);
       }
+
       18.4% {
         opacity: 0.95;
         transform: translateX(3px) scale(1.00, 0.85);
         filter: blur(3.3px);
       }
+
       18.8% {
         opacity: 0.93;
         transform: translateX(3px) scale(1.01, 0.86);
         filter: blur(3.9px);
       }
+
       19.1% {
         opacity: 0.92;
         transform: translateX(3px) scale(1.01, 0.87);
         filter: blur(4.4px);
       }
+
       22.0% {
         opacity: 0.83;
         transform: translateX(3px) scale(1.05, 0.92);
         filter: blur(8.4px);
       }
+
       25.5% {
         opacity: 0.74;
         transform: translateX(14px) scale(1.09, 0.97);
         filter: blur(12.1px);
       }
+
       29.0% {
         opacity: 0.69;
         transform: translateX(21px) scale(1.11, 1.00);
         filter: blur(14.3px);
       }
+
       32.6% {
         opacity: 0.67;
         transform: translateX(28px) scale(1.12, 1.01);
         filter: blur(15.0px);
       }
+
       36.1% {
         opacity: 0.69;
         transform: translateX(34px) scale(1.11, 1.00);
         filter: blur(14.3px);
       }
+
       39.6% {
         opacity: 0.74;
         transform: translateX(41px) scale(1.09, 0.97);
         filter: blur(12.1px);
       }
+
       42.0% {
         opacity: 0.80;
         transform: translateX(44px) scale(1.07, 0.94);
         filter: blur(9.8px);
       }
+
       43.9% {
         opacity: 0.85;
         transform: translateX(44px) scale(1.04, 0.91);
         filter: blur(7.4px);
       }
+
       44.4% {
         opacity: 0.85;
         transform: translateX(44px) scale(1.04, 0.91);
         filter: blur(7.7px);
       }
+
       44.8% {
         opacity: 0.84;
         transform: translateX(44px) scale(1.05, 0.91);
         filter: blur(7.9px);
       }
+
       49.5% {
         opacity: 0.81;
         transform: translateX(27px) scale(1.06, 0.93);
         filter: blur(9.2px);
       }
+
       53.6% {
         opacity: 0.83;
         transform: translateX(11px) scale(1.05, 0.92);
         filter: blur(8.2px);
       }
+
       56.6% {
         opacity: 0.88;
         transform: translateX(5px) scale(1.03, 0.89);
         filter: blur(6.3px);
       }
+
       58.6% {
         opacity: 0.92;
         transform: translateX(-10px) scale(1.01, 0.87);
         filter: blur(4.4px);
       }
+
       58.9% {
         opacity: 0.92;
         transform: translateX(-9px) scale(1.01, 0.87);
         filter: blur(4.6px);
       }
+
       59.3% {
         opacity: 0.91;
         transform: translateX(-7px) scale(1.02, 0.87);
         filter: blur(4.7px);
       }
+
       62.5% {
         opacity: 0.90;
         transform: translateX(5px) scale(1.02, 0.88);
         filter: blur(5.3px);
       }
+
       66.7% {
         opacity: 0.92;
         transform: translateX(16px) scale(1.01, 0.86);
         filter: blur(4.3px);
       }
+
       67.0% {
         opacity: 0.92;
         transform: translateX(15px) scale(1.01, 0.86);
         filter: blur(4.3px);
       }
+
       67.3% {
         opacity: 0.92;
         transform: translateX(15px) scale(1.01, 0.87);
         filter: blur(4.4px);
       }
+
       68.6% {
         opacity: 0.92;
         transform: translateX(12px) scale(1.01, 0.87);
         filter: blur(4.5px);
       }
+
       73.1% {
         opacity: 0.95;
         transform: translateX(5px) scale(1.00, 0.85);
         filter: blur(3.3px);
       }
+
       73.6% {
         opacity: 0.95;
         transform: translateX(5px) scale(1.00, 0.85);
         filter: blur(3.2px);
       }
+
       75.3% {
         opacity: 0.95;
         transform: translateX(4px) scale(1.00, 0.85);
         filter: blur(3.2px);
       }
+
       78.8% {
         opacity: 0.95;
         transform: translateX(3px) scale(1.00, 0.85);
         filter: blur(3.2px);
       }
+
       82.9% {
         opacity: 0.95;
         transform: translateX(2px) scale(1.00, 0.85);
         filter: blur(3.2px);
       }
+
       87.1% {
         opacity: 0.95;
         transform: translateX(1px) scale(1.00, 0.85);
         filter: blur(3.2px);
       }
+
       91.2% {
         opacity: 0.95;
         transform: translateX(0px) scale(1.00, 0.85);
         filter: blur(3.2px);
       }
+
       95.3% {
         opacity: 0.95;
         transform: translateX(0px) scale(1.00, 0.85);
         filter: blur(3.2px);
       }
+
       97.6% {
         opacity: 0.95;
         transform: translateX(0px) scale(1.00, 0.85);
         filter: blur(3.2px);
       }
+
       100.0% {
         opacity: 0.88;
         transform: translateX(0px) scale(1.00, 0.85);
@@ -1053,8 +1579,12 @@
     }
 
     @keyframes flashAsymmetricKinetic {
+
       /* Muted to preserve pure instantaneous impact blackout */
-      0.0%, 100.0% { opacity: 0; }
+      0.0%,
+      100.0% {
+        opacity: 0;
+      }
     }
 
     /* ==========================================================================
@@ -1084,174 +1614,217 @@
        From 1.74s to 2.12s: Exactly 380ms of dark, motionless, physical stillness.
     */
     @keyframes wordSculpturePhysics {
+
       /* 0.000s (0.0%): stage=0, contact=left_front */
       0.0% {
         transform: translateY(-75.97vh) translateX(0px) translateZ(-600px) rotateX(-2.80deg) rotateY(-1.20deg) rotateZ(-0.40deg);
       }
+
       /* 0.080s (2.4%): stage=0, contact=left_front */
       2.4% {
         transform: translateY(-71.10vh) translateX(0px) translateZ(-528px) rotateX(-2.69deg) rotateY(-1.16deg) rotateZ(-0.38deg);
       }
+
       /* 0.160s (4.7%): stage=0, contact=left_front */
       4.7% {
         transform: translateY(-64.81vh) translateX(1px) translateZ(-457px) rotateX(-2.58deg) rotateY(-1.12deg) rotateZ(-0.35deg);
       }
+
       /* 0.250s (7.4%): stage=0, contact=left_front */
       7.4% {
         transform: translateY(-56.06vh) translateX(1px) translateZ(-377px) rotateX(-2.45deg) rotateY(-1.07deg) rotateZ(-0.32deg);
       }
+
       /* 0.340s (10.0%): stage=0, contact=left_front */
       10.0% {
         transform: translateY(-45.52vh) translateX(1px) translateZ(-297px) rotateX(-2.32deg) rotateY(-1.03deg) rotateZ(-0.30deg);
       }
+
       /* 0.430s (12.6%): stage=0, contact=left_front */
       12.6% {
         transform: translateY(-33.20vh) translateX(2px) translateZ(-217px) rotateX(-2.20deg) rotateY(-0.98deg) rotateZ(-0.27deg);
       }
+
       /* 0.510s (15.0%): stage=0, contact=left_front */
       15.0% {
         transform: translateY(-20.76vh) translateX(2px) translateZ(-146px) rotateX(-2.09deg) rotateY(-0.94deg) rotateZ(-0.25deg);
       }
+
       /* 0.570s (16.8%): stage=0, contact=left_front */
       16.8% {
         transform: translateY(-10.50vh) translateX(2px) translateZ(-92px) rotateX(-2.00deg) rotateY(-0.91deg) rotateZ(-0.23deg);
       }
+
       /* 0.610s (17.9%): stage=0, contact=left_front */
       17.9% {
         transform: translateY(-3.22vh) translateX(2px) translateZ(-57px) rotateX(-1.95deg) rotateY(-0.89deg) rotateZ(-0.22deg);
       }
+
       /* 0.626s (18.4%): stage=1, contact=left_front */
       18.4% {
         transform: translateY(-0.26vh) translateX(3px) translateZ(-42px) rotateX(-1.93deg) rotateY(-0.89deg) rotateZ(-0.21deg);
       }
+
       /* 0.638s (18.8%): stage=1, contact=left_front */
       18.8% {
         transform: translateY(-1.47vh) translateX(3px) translateZ(-42px) rotateX(-2.12deg) rotateY(-0.85deg) rotateZ(-0.11deg);
       }
+
       /* 0.650s (19.1%): stage=2, contact=left_front */
       19.1% {
         transform: translateY(-2.68vh) translateX(3px) translateZ(-42px) rotateX(-2.30deg) rotateY(-0.81deg) rotateZ(-0.00deg);
       }
+
       /* 0.746s (22.0%): stage=2, contact=right_front */
       22.0% {
         transform: translateY(-11.31vh) translateX(3px) translateZ(-41px) rotateX(-3.79deg) rotateY(-0.53deg) rotateZ(0.81deg);
       }
+
       /* 0.866s (25.5%): stage=2, contact=right_front */
       25.5% {
         transform: translateY(-19.24vh) translateX(3px) translateZ(-40px) rotateX(-5.65deg) rotateY(-0.17deg) rotateZ(1.83deg);
       }
+
       /* 0.986s (29.0%): stage=2, contact=right_front */
       29.0% {
         transform: translateY(-24.01vh) translateX(4px) translateZ(-39px) rotateX(-7.51deg) rotateY(0.19deg) rotateZ(2.85deg);
       }
+
       /* 1.107s (32.6%): stage=2, contact=right_front */
       32.6% {
         transform: translateY(-25.61vh) translateX(4px) translateZ(-38px) rotateX(-9.39deg) rotateY(0.56deg) rotateZ(3.88deg);
       }
+
       /* 1.227s (36.1%): stage=2, contact=right_front */
       36.1% {
         transform: translateY(-24.01vh) translateX(5px) translateZ(-36px) rotateX(-11.25deg) rotateY(0.92deg) rotateZ(4.90deg);
       }
+
       /* 1.347s (39.6%): stage=2, contact=right_front */
       39.6% {
         transform: translateY(-19.25vh) translateX(5px) translateZ(-35px) rotateX(-13.11deg) rotateY(1.28deg) rotateZ(5.92deg);
       }
+
       /* 1.427s (42.0%): stage=2, contact=right_front */
       42.0% {
         transform: translateY(-14.31vh) translateX(6px) translateZ(-34px) rotateX(-14.35deg) rotateY(1.52deg) rotateZ(6.60deg);
       }
+
       /* 1.494s (43.9%): stage=3, contact=right_front */
       43.9% {
         transform: translateY(-9.20vh) translateX(6px) translateZ(-34px) rotateX(-15.37deg) rotateY(1.71deg) rotateZ(7.15deg);
       }
+
       /* 1.508s (44.4%): stage=3, contact=right_front */
       44.4% {
         transform: translateY(-9.70vh) translateX(6px) translateZ(-34px) rotateX(-15.27deg) rotateY(1.66deg) rotateZ(6.89deg);
       }
+
       /* 1.522s (44.8%): stage=4, contact=right_front */
       44.8% {
         transform: translateY(-10.20vh) translateX(6px) translateZ(-34px) rotateX(-15.17deg) rotateY(1.61deg) rotateZ(6.63deg);
       }
+
       /* 1.684s (49.5%): stage=4, contact=right_front */
       49.5% {
         transform: translateY(-13.06vh) translateX(5px) translateZ(-35px) rotateX(-14.04deg) rotateY(0.99deg) rotateZ(3.64deg);
       }
+
       /* 1.824s (53.6%): stage=4, contact=right_front */
       53.6% {
         transform: translateY(-10.89vh) translateX(5px) translateZ(-35px) rotateX(-13.06deg) rotateY(0.46deg) rotateZ(1.05deg);
       }
+
       /* 1.924s (56.6%): stage=4, contact=left_front */
       56.6% {
         transform: translateY(-6.70vh) translateX(5px) translateZ(-35px) rotateX(-12.36deg) rotateY(0.08deg) rotateZ(-0.80deg);
       }
+
       /* 1.991s (58.6%): stage=5, contact=left_front */
       58.6% {
         transform: translateY(-2.71vh) translateX(4px) translateZ(-36px) rotateX(-11.89deg) rotateY(-0.17deg) rotateZ(-2.03deg);
       }
+
       /* 2.003s (58.9%): stage=5, contact=left_front */
       58.9% {
         transform: translateY(-3.00vh) translateX(5px) translateZ(-36px) rotateX(-11.95deg) rotateY(-0.14deg) rotateZ(-1.86deg);
       }
+
       /* 2.015s (59.3%): stage=6, contact=left_front */
       59.3% {
         transform: translateY(-3.29vh) translateX(5px) translateZ(-36px) rotateX(-12.00deg) rotateY(-0.11deg) rotateZ(-1.70deg);
       }
+
       /* 2.125s (62.5%): stage=6, contact=left_front */
       62.5% {
         transform: translateY(-4.61vh) translateX(5px) translateZ(-35px) rotateX(-12.50deg) rotateY(0.15deg) rotateZ(-0.22deg);
       }
+
       /* 2.269s (66.7%): stage=7, contact=right_front */
       66.7% {
         transform: translateY(-2.33vh) translateX(5px) translateZ(-35px) rotateX(-13.14deg) rotateY(0.49deg) rotateZ(1.72deg);
       }
+
       /* 2.279s (67.0%): stage=7, contact=right_front */
       67.0% {
         transform: translateY(-2.42vh) translateX(5px) translateZ(-35px) rotateX(-13.12deg) rotateY(0.48deg) rotateZ(1.64deg);
       }
+
       /* 2.289s (67.3%): stage=8, contact=right_front */
       67.3% {
         transform: translateY(-2.52vh) translateX(5px) translateZ(-35px) rotateX(-13.09deg) rotateY(0.47deg) rotateZ(1.56deg);
       }
+
       /* 2.332s (68.6%): stage=8, contact=right_front */
       68.6% {
         transform: translateY(-2.72vh) translateX(5px) translateZ(-35px) rotateX(-12.98deg) rotateY(0.42deg) rotateZ(1.22deg);
       }
+
       /* 2.485s (73.1%): stage=9, contact=right_front */
       73.1% {
         transform: translateY(-0.16vh) translateX(5px) translateZ(-35px) rotateX(-12.58deg) rotateY(0.24deg) rotateZ(0.01deg);
       }
+
       /* 2.501s (73.6%): stage=10, contact=right_front */
       73.6% {
         transform: translateY(-0.10vh) translateX(5px) translateZ(-35px) rotateX(-11.06deg) rotateY(0.17deg) rotateZ(0.08deg);
       }
+
       /* 2.560s (75.3%): stage=10, contact=right_back */
       75.3% {
         transform: translateY(-0.03vh) translateX(4px) translateZ(-30px) rotateX(4.93deg) rotateY(-0.06deg) rotateZ(0.03deg);
       }
+
       /* 2.680s (78.8%): stage=10, contact=left_front */
       78.8% {
         transform: translateY(-0.06vh) translateX(3px) translateZ(-22px) rotateX(-3.48deg) rotateY(-0.09deg) rotateZ(-0.05deg);
       }
+
       /* 2.820s (82.9%): stage=10, contact=right_back */
       82.9% {
         transform: translateY(-0.04vh) translateX(2px) translateZ(-13px) rotateX(4.00deg) rotateY(0.09deg) rotateZ(0.03deg);
       }
+
       /* 2.960s (87.1%): stage=10, contact=left_front */
       87.1% {
         transform: translateY(-0.02vh) translateX(1px) translateZ(-7px) rotateX(-2.61deg) rotateY(-0.05deg) rotateZ(-0.02deg);
       }
+
       /* 3.100s (91.2%): stage=10, contact=right_back */
       91.2% {
         transform: translateY(-0.01vh) translateX(0px) translateZ(-3px) rotateX(1.02deg) rotateY(0.01deg) rotateZ(0.01deg);
       }
+
       /* 3.240s (95.3%): stage=10, contact=left_front */
       95.3% {
         transform: translateY(-0.00vh) translateX(0px) translateZ(-1px) rotateX(-0.16deg) rotateY(-0.00deg) rotateZ(-0.00deg);
       }
+
       /* 3.320s (97.6%): stage=10, contact=left_back */
       97.6% {
         transform: translateY(-0.00vh) translateX(0px) translateZ(0px) rotateX(0.06deg) rotateY(-0.00deg) rotateZ(-0.00deg);
       }
+
       /* 3.400s (100.0%): stage=10, contact=right_front */
       100.0% {
         transform: translateY(0.00vh) translateX(0px) translateZ(0px) rotateX(0.00deg) rotateY(0.00deg) rotateZ(0.00deg);
@@ -1266,7 +1839,8 @@
       position: relative;
       display: inline-block;
       transform-style: preserve-3d;
-      transform-origin: 50% 100%; /* Ground baseline pivot */
+      transform-origin: 50% 100%;
+      /* Ground baseline pivot */
       user-select: none;
       -webkit-user-select: none;
       white-space: nowrap;
@@ -1277,7 +1851,8 @@
     .sculpture-layer {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       font-size: clamp(3.2rem, min(16.5vw, 32vh), 20.5rem);
-      font-weight: 900; /* Extra bold monumental sculpture letterforms */
+      font-weight: 900;
+      /* Extra bold monumental sculpture letterforms */
       letter-spacing: -0.035em;
       line-height: 0.95;
       display: block;
@@ -1290,7 +1865,7 @@
     .layer-front {
       position: relative;
       color: #ffffff;
-      text-shadow: 
+      text-shadow:
         0 0 3px #ffffff,
         0 0 10px rgba(255, 255, 255, 0.90),
         0 0 24px rgba(240, 246, 255, 0.45),
@@ -1301,12 +1876,14 @@
 
     /* POST-SETTLE CONTOUR ILLUMINATION (Strictly begins AFTER complete rest) */
     @keyframes billboardSignIllumination {
+
       /* =========================================================================
          PHASE 1: HIGH-ALTITUDE DESCENT (0.000s - 0.625s / 0.0% - 12.02%)
          Fully illuminated billboard before impact. Stable clean white light.
          No flicker before the first ground collision.
          ========================================================================= */
-      0.0%, 12.02% {
+      0.0%,
+      12.02% {
         color: #ffffff;
         text-shadow:
           0 0 3px #ffffff,
@@ -1320,7 +1897,8 @@
          At first ground contact: instant cut to 0% blackout in <0.5ms.
          Holds blackout for ~34ms so viewer perceives the electrical knock-out.
          ========================================================================= */
-      12.04%, 12.69% {
+      12.04%,
+      12.69% {
         color: #12141a;
         text-shadow: 0 0 0 transparent;
       }
@@ -1330,53 +1908,71 @@
          0% -> 85% -> 20% -> 100% -> 35% -> 75% -> 15% -> 92% -> 45% -> 95% -> 100%
          ========================================================================= */
       /* Flicker 1: Sharp strike to 85% (0.661s - 0.690s / 12.71% - 13.27%) */
-      12.71%, 13.27% {
+      12.71%,
+      13.27% {
         color: #f2f4f8;
         text-shadow: 0 0 3px #ffffff, 0 0 8px rgba(255, 255, 255, 0.82), 0 0 18px rgba(240, 246, 255, 0.35);
       }
+
       /* Flicker 2: Sharp drop to 20% (0.691s - 0.720s / 13.29% - 13.85%) */
-      13.29%, 13.85% {
+      13.29%,
+      13.85% {
         color: #4a5264;
         text-shadow: 0 0 2px rgba(255, 255, 255, 0.20), 0 0 5px rgba(240, 246, 255, 0.08);
       }
+
       /* Flicker 3: Surge strike to 100% (0.721s - 0.750s / 13.87% - 14.42%) */
-      13.87%, 14.42% {
+      13.87%,
+      14.42% {
         color: #ffffff;
         text-shadow: 0 0 3px #ffffff, 0 0 10px rgba(255, 255, 255, 0.90), 0 0 24px rgba(240, 246, 255, 0.45), 0 0 48px rgba(220, 235, 255, 0.18);
       }
+
       /* Flicker 4: Voltage drop to 35% (0.751s - 0.785s / 14.44% - 15.10%) */
-      14.44%, 15.10% {
+      14.44%,
+      15.10% {
         color: #788299;
         text-shadow: 0 0 2px rgba(255, 255, 255, 0.40), 0 0 8px rgba(240, 246, 255, 0.15);
       }
+
       /* Flicker 5: Restrike recovery to 75% (0.786s - 0.820s / 15.12% - 15.77%) */
-      15.12%, 15.77% {
+      15.12%,
+      15.77% {
         color: #e2e7f2;
         text-shadow: 0 0 3px #ffffff, 0 0 7px rgba(255, 255, 255, 0.72), 0 0 16px rgba(240, 246, 255, 0.30);
       }
+
       /* Flicker 6: Deep secondary dip to 15% (0.821s - 0.850s / 15.79% - 16.35%) */
-      15.79%, 16.35% {
+      15.79%,
+      16.35% {
         color: #3e4454;
         text-shadow: 0 0 2px rgba(255, 255, 255, 0.15);
       }
+
       /* Flicker 7: Powerful restrike to 92% (0.851s - 0.890s / 16.37% - 17.12%) */
-      16.37%, 17.12% {
+      16.37%,
+      17.12% {
         color: #f6f8fb;
         text-shadow: 0 0 3px #ffffff, 0 0 9px rgba(255, 255, 255, 0.85), 0 0 20px rgba(240, 246, 255, 0.40);
       }
+
       /* Flicker 8: Damped dip to 45% (0.891s - 0.930s / 17.13% - 17.88%) */
-      17.13%, 17.88% {
+      17.13%,
+      17.88% {
         color: #929db2;
         text-shadow: 0 0 2px rgba(255, 255, 255, 0.50), 0 0 10px rgba(240, 246, 255, 0.20);
       }
+
       /* Flicker 9: Restabilization to 95% (0.931s - 1.050s / 17.90% - 20.19%) */
-      17.90%, 20.19% {
+      17.90%,
+      20.19% {
         color: #fafbfc;
         text-shadow: 0 0 3px #ffffff, 0 0 10px rgba(255, 255, 255, 0.88), 0 0 22px rgba(240, 246, 255, 0.42);
       }
 
       /* APEX 1 Peak: High stable floating rebound (1.107s - 1.493s / 21.29% - 28.71%) */
-      21.29%, 28.71% {
+      21.29%,
+      28.71% {
         color: #ffffff;
         text-shadow: 0 0 3px #ffffff, 0 0 10px rgba(255, 255, 255, 0.90), 0 0 24px rgba(240, 246, 255, 0.45);
       }
@@ -1385,27 +1981,38 @@
          PHASE 4: IMPACT 2 RIGHT TIP IMPACT (1.494s / 28.73%)
          Drop to 8% near-blackout shock, shorter flicker.
          ========================================================================= */
-      28.73%, 29.12% {
+      28.73%,
+      29.12% {
         color: #242934;
         text-shadow: 0 0 1px rgba(255, 255, 255, 0.10);
       }
-      29.13%, 29.71% {
+
+      29.13%,
+      29.71% {
         color: #f0f3f8;
         text-shadow: 0 0 3px #ffffff, 0 0 8px rgba(255, 255, 255, 0.80), 0 0 18px rgba(240, 246, 255, 0.35);
       }
-      29.73%, 30.29% {
+
+      29.73%,
+      30.29% {
         color: #687288;
         text-shadow: 0 0 2px rgba(255, 255, 255, 0.35), 0 0 6px rgba(240, 246, 255, 0.12);
       }
-      30.31%, 31.06% {
+
+      30.31%,
+      31.06% {
         color: #f4f6fa;
         text-shadow: 0 0 3px #ffffff, 0 0 9px rgba(255, 255, 255, 0.85), 0 0 20px rgba(240, 246, 255, 0.38);
       }
-      31.08%, 31.63% {
+
+      31.08%,
+      31.63% {
         color: #c4ccdc;
         text-shadow: 0 0 3px rgba(255, 255, 255, 0.70), 0 0 8px rgba(255, 255, 255, 0.50), 0 0 16px rgba(240, 246, 255, 0.22);
       }
-      32.38%, 38.27% {
+
+      32.38%,
+      38.27% {
         color: #f8fafc;
         text-shadow: 0 0 3px #ffffff, 0 0 10px rgba(255, 255, 255, 0.88), 0 0 22px rgba(240, 246, 255, 0.42);
       }
@@ -1414,19 +2021,26 @@
          PHASE 5: IMPACT 3 LEFT TIP IMPACT (1.991s / 38.29%)
          Interruption to 28%, smaller flicker.
          ========================================================================= */
-      38.29%, 38.75% {
+      38.29%,
+      38.75% {
         color: #5d677b;
         text-shadow: 0 0 2px rgba(255, 255, 255, 0.30), 0 0 6px rgba(240, 246, 255, 0.12);
       }
-      38.77%, 39.33% {
+
+      38.77%,
+      39.33% {
         color: #edf1f7;
         text-shadow: 0 0 3px #ffffff, 0 0 8px rgba(255, 255, 255, 0.82), 0 0 18px rgba(240, 246, 255, 0.36);
       }
-      39.35%, 39.90% {
+
+      39.35%,
+      39.90% {
         color: #b0b9ca;
         text-shadow: 0 0 2px rgba(255, 255, 255, 0.62), 0 0 7px rgba(255, 255, 255, 0.42), 0 0 16px rgba(240, 246, 255, 0.18);
       }
-      40.87%, 43.62% {
+
+      40.87%,
+      43.62% {
         color: #f8fafc;
         text-shadow: 0 0 3px #ffffff, 0 0 10px rgba(255, 255, 255, 0.88), 0 0 22px rgba(240, 246, 255, 0.42);
       }
@@ -1435,15 +2049,20 @@
          PHASE 6: IMPACTS 4 & 5 (2.269s - 2.500s / 43.63% - 48.08%)
          Progressively smaller damping disturbances.
          ========================================================================= */
-      43.63%, 44.13% {
+      43.63%,
+      44.13% {
         color: #abb5c7;
         text-shadow: 0 0 2px rgba(255, 255, 255, 0.60), 0 0 7px rgba(255, 255, 255, 0.40), 0 0 16px rgba(240, 246, 255, 0.18);
       }
-      44.15%, 47.77% {
+
+      44.15%,
+      47.77% {
         color: #f7f9fb;
         text-shadow: 0 0 3px #ffffff, 0 0 9px rgba(255, 255, 255, 0.86), 0 0 20px rgba(240, 246, 255, 0.40);
       }
-      47.79%, 48.08% {
+
+      47.79%,
+      48.08% {
         color: #d2d8e4;
         text-shadow: 0 0 3px rgba(255, 255, 255, 0.75), 0 0 8px rgba(255, 255, 255, 0.60), 0 0 18px rgba(240, 246, 255, 0.28);
       }
@@ -1457,41 +2076,49 @@
         color: #f4f6fa;
         text-shadow: 0 0 3px #ffffff, 0 0 9px rgba(255, 255, 255, 0.85), 0 0 20px rgba(240, 246, 255, 0.38);
       }
+
       /* Rocking wave 1 dip: 86% (2.600s / 50.00%) */
       50.00% {
         color: #e5ebf4;
         text-shadow: 0 0 3px #ffffff, 0 0 8px rgba(255, 255, 255, 0.80), 0 0 18px rgba(240, 246, 255, 0.35);
       }
+
       /* Rocking wave 1 crest: 96% (2.700s / 51.92%) */
       51.92% {
         color: #fafbfc;
         text-shadow: 0 0 3px #ffffff, 0 0 10px rgba(255, 255, 255, 0.88), 0 0 22px rgba(240, 246, 255, 0.42);
       }
+
       /* Rocking wave 2 dip: 90% (2.800s / 53.85%) */
       53.85% {
         color: #edf2f9;
         text-shadow: 0 0 3px #ffffff, 0 0 9px rgba(255, 255, 255, 0.84), 0 0 20px rgba(240, 246, 255, 0.38);
       }
+
       /* Rocking wave 2 crest: 97% (2.920s / 56.15%) */
       56.15% {
         color: #fafbfc;
         text-shadow: 0 0 3px #ffffff, 0 0 10px rgba(255, 255, 255, 0.88), 0 0 22px rgba(240, 246, 255, 0.42);
       }
+
       /* Rocking wave 3 dip: 94% (3.060s / 58.85%) */
       58.85% {
         color: #f2f5fa;
         text-shadow: 0 0 3px #ffffff, 0 0 9px rgba(255, 255, 255, 0.86), 0 0 22px rgba(240, 246, 255, 0.40);
       }
+
       /* Rocking wave 3 crest: 98.5% (3.200s / 61.54%) */
       61.54% {
         color: #ffffff;
         text-shadow: 0 0 3px #ffffff, 0 0 10px rgba(255, 255, 255, 0.89), 0 0 24px rgba(240, 246, 255, 0.44);
       }
+
       /* Pre-rest micro-dip: 97.5% (3.320s / 63.85%) */
       63.85% {
         color: #fafbfc;
         text-shadow: 0 0 3px #ffffff, 0 0 10px rgba(255, 255, 255, 0.88), 0 0 23px rgba(240, 246, 255, 0.43);
       }
+
       /* Approaching dead rest (3.399s / 65.36%) */
       65.36% {
         color: #ffffff;
@@ -1519,21 +2146,25 @@
         color: #ffffff;
         text-shadow: 0 0 3px #ffffff, 0 0 10px rgba(255, 255, 255, 0.90), 0 0 24px rgba(240, 246, 255, 0.45);
       }
+
       /* 3.425s (65.87%): Micro-dip 1 (88%) */
       65.87% {
         color: #e4eaf4;
         text-shadow: 0 0 3px rgba(255, 255, 255, 0.92), 0 0 8px rgba(255, 255, 255, 0.78), 0 0 18px rgba(240, 246, 255, 0.34);
       }
+
       /* 3.450s (66.35%): Recovery 1 (96%) */
       66.35% {
         color: #fafbfc;
         text-shadow: 0 0 3px #ffffff, 0 0 10px rgba(255, 255, 255, 0.88), 0 0 22px rgba(240, 246, 255, 0.42);
       }
+
       /* 3.475s (66.83%): Dip 2 (80%) */
       66.83% {
         color: #ccd6e8;
         text-shadow: 0 0 2px rgba(255, 255, 255, 0.80), 0 0 7px rgba(255, 255, 255, 0.65), 0 0 16px rgba(240, 246, 255, 0.26);
       }
+
       /* 3.500s (67.31%): Recovery 2 (94%) */
       67.31% {
         color: #f5f8fc;
@@ -1546,56 +2177,67 @@
         color: #b5c2da;
         text-shadow: 0 0 2px rgba(255, 255, 255, 0.70), 0 0 6px rgba(255, 255, 255, 0.52), 0 0 14px rgba(240, 246, 255, 0.20);
       }
+
       /* 3.550s (68.27%): Tremble Crest 3 (91%) */
       68.27% {
         color: #edf2f9;
         text-shadow: 0 0 3px rgba(255, 255, 255, 0.95), 0 0 9px rgba(255, 255, 255, 0.82), 0 0 20px rgba(240, 246, 255, 0.38);
       }
+
       /* 3.575s (68.75%): Tremble Dip 4 (67% - deepest trough, still clearly illuminated) */
       68.75% {
         color: #9fadcb;
         text-shadow: 0 0 2px rgba(255, 255, 255, 0.60), 0 0 6px rgba(255, 255, 255, 0.42), 0 0 12px rgba(240, 246, 255, 0.16);
       }
+
       /* 3.600s (69.23%): Tremble Crest 4 (94%) */
       69.23% {
         color: #f5f8fc;
         text-shadow: 0 0 3px #ffffff, 0 0 9px rgba(255, 255, 255, 0.86), 0 0 22px rgba(240, 246, 255, 0.42);
       }
+
       /* 3.625s (69.71%): Tremble Dip 5 (71%) */
       69.71% {
         color: #b0bfd8;
         text-shadow: 0 0 2px rgba(255, 255, 255, 0.68), 0 0 6px rgba(255, 255, 255, 0.48), 0 0 14px rgba(240, 246, 255, 0.18);
       }
+
       /* 3.650s (70.19%): Tremble Crest 5 (92%) */
       70.19% {
         color: #f0f4fa;
         text-shadow: 0 0 3px rgba(255, 255, 255, 0.96), 0 0 9px rgba(255, 255, 255, 0.84), 0 0 20px rgba(240, 246, 255, 0.38);
       }
+
       /* 3.675s (70.67%): Tremble Dip 6 (69%) */
       70.67% {
         color: #a7b7d2;
         text-shadow: 0 0 2px rgba(255, 255, 255, 0.64), 0 0 6px rgba(255, 255, 255, 0.45), 0 0 13px rgba(240, 246, 255, 0.17);
       }
+
       /* 3.700s (71.15%): Tremble Crest 6 (95%) */
       71.15% {
         color: #f7f9fc;
         text-shadow: 0 0 3px #ffffff, 0 0 10px rgba(255, 255, 255, 0.88), 0 0 22px rgba(240, 246, 255, 0.42);
       }
+
       /* 3.725s (71.63%): Tremble Dip 7 (74%) */
       71.63% {
         color: #b8c5dc;
         text-shadow: 0 0 2px rgba(255, 255, 255, 0.72), 0 0 7px rgba(255, 255, 255, 0.54), 0 0 15px rgba(240, 246, 255, 0.22);
       }
+
       /* 3.750s (72.12%): Tremble Crest 7 (93%) */
       72.12% {
         color: #f2f5fa;
         text-shadow: 0 0 3px #ffffff, 0 0 9px rgba(255, 255, 255, 0.85), 0 0 21px rgba(240, 246, 255, 0.40);
       }
+
       /* 3.775s (72.60%): Tremble Dip 8 (76%) */
       72.60% {
         color: #bec9de;
         text-shadow: 0 0 2px rgba(255, 255, 255, 0.75), 0 0 7px rgba(255, 255, 255, 0.58), 0 0 16px rgba(240, 246, 255, 0.24);
       }
+
       /* 3.800s (73.08%): Tremble Crest 8 (95%) */
       73.08% {
         color: #f7f9fc;
@@ -1608,31 +2250,37 @@
         color: #d1dbec;
         text-shadow: 0 0 3px rgba(255, 255, 255, 0.84), 0 0 8px rgba(255, 255, 255, 0.68), 0 0 18px rgba(240, 246, 255, 0.28);
       }
+
       /* 3.860s (74.23%): Calming Crest 9 (95%) */
       74.23% {
         color: #f7f9fc;
         text-shadow: 0 0 3px #ffffff, 0 0 10px rgba(255, 255, 255, 0.88), 0 0 22px rgba(240, 246, 255, 0.42);
       }
+
       /* 3.890s (74.81%): Calming Dip 10 (86%) */
       74.81% {
         color: #dce4f1;
         text-shadow: 0 0 3px rgba(255, 255, 255, 0.88), 0 0 9px rgba(255, 255, 255, 0.75), 0 0 19px rgba(240, 246, 255, 0.32);
       }
+
       /* 3.920s (75.38%): Calming Crest 10 (97%) */
       75.38% {
         color: #fafbfc;
         text-shadow: 0 0 3px #ffffff, 0 0 10px rgba(255, 255, 255, 0.90), 0 0 23px rgba(240, 246, 255, 0.44);
       }
+
       /* 3.950s (75.96%): Calming Dip 11 (90%) */
       75.96% {
         color: #e8eff7;
         text-shadow: 0 0 3px rgba(255, 255, 255, 0.92), 0 0 9px rgba(255, 255, 255, 0.82), 0 0 20px rgba(240, 246, 255, 0.36);
       }
+
       /* 3.980s (76.54%): Calming Crest 11 (98%) */
       76.54% {
         color: #fcfdfe;
         text-shadow: 0 0 3px #ffffff, 0 0 10px rgba(255, 255, 255, 0.91), 0 0 24px rgba(240, 246, 255, 0.45);
       }
+
       /* 4.015s (77.21%): Micro-dip 12 (94%) */
       77.21% {
         color: #f2f6fa;
@@ -1644,7 +2292,8 @@
          Flicker amplitude = 0. Zero jitter, zero flicker, perfectly stable.
          Pure, clean, powerful luxury architectural billboard illumination through reveal.
          ========================================================================= */
-      77.88%, 100.0% {
+      77.88%,
+      100.0% {
         color: #ffffff;
         text-shadow:
           0 0 4px #ffffff,
@@ -1663,80 +2312,304 @@
       height: 100%;
     }
 
-    .layer-ext-1  { transform: translateZ(calc(var(--layer-step) * 5));  color: #555e74; }
-    .layer-ext-2  { transform: translateZ(calc(var(--layer-step) * 4));  color: #495164; }
-    .layer-ext-3  { transform: translateZ(calc(var(--layer-step) * 3));  color: #3e4454; }
-    .layer-ext-4  { transform: translateZ(calc(var(--layer-step) * 2));  color: #333845; }
-    .layer-ext-5  { transform: translateZ(calc(var(--layer-step) * 1));  color: #2a2e39; }
-    .layer-ext-6  { transform: translateZ(0px);                          color: #21252e; }
-    .layer-ext-7  { transform: translateZ(calc(var(--layer-step) * -1)); color: #1a1c23; }
-    .layer-ext-8  { transform: translateZ(calc(var(--layer-step) * -2)); color: #13151b; }
-    .layer-ext-9  { transform: translateZ(calc(var(--layer-step) * -3)); color: #0e1014; }
-    .layer-ext-10 { transform: translateZ(calc(var(--layer-step) * -4)); color: #090a0d; }
-    .layer-back   { transform: translateZ(calc(var(--layer-step) * -6)); color: #060709; filter: blur(0.5px); }
+    .layer-ext-1 {
+      transform: translateZ(calc(var(--layer-step) * 5));
+      color: #555e74;
+    }
+
+    .layer-ext-2 {
+      transform: translateZ(calc(var(--layer-step) * 4));
+      color: #495164;
+    }
+
+    .layer-ext-3 {
+      transform: translateZ(calc(var(--layer-step) * 3));
+      color: #3e4454;
+    }
+
+    .layer-ext-4 {
+      transform: translateZ(calc(var(--layer-step) * 2));
+      color: #333845;
+    }
+
+    .layer-ext-5 {
+      transform: translateZ(calc(var(--layer-step) * 1));
+      color: #2a2e39;
+    }
+
+    .layer-ext-6 {
+      transform: translateZ(0px);
+      color: #21252e;
+    }
+
+    .layer-ext-7 {
+      transform: translateZ(calc(var(--layer-step) * -1));
+      color: #1a1c23;
+    }
+
+    .layer-ext-8 {
+      transform: translateZ(calc(var(--layer-step) * -2));
+      color: #13151b;
+    }
+
+    .layer-ext-9 {
+      transform: translateZ(calc(var(--layer-step) * -3));
+      color: #0e1014;
+    }
+
+    .layer-ext-10 {
+      transform: translateZ(calc(var(--layer-step) * -4));
+      color: #090a0d;
+    }
+
+    .layer-back {
+      transform: translateZ(calc(var(--layer-step) * -6));
+      color: #060709;
+      filter: blur(0.5px);
+    }
 
     /* Extrusion edge sheen animation when illuminated */
-    .layer-ext-1, .layer-ext-2, .layer-ext-3, .layer-ext-4 {
+    .layer-ext-1,
+    .layer-ext-2,
+    .layer-ext-3,
+    .layer-ext-4 {
       animation: extrusionEdgeSheen var(--word-exit-time) linear var(--word-fall-delay) forwards;
     }
 
     @keyframes extrusionEdgeSheen {
+
       /* 0.000s - 0.625s (0.0% - 12.02%): Pre-impact specular reflection */
-      0.0%, 12.02% {
+      0.0%,
+      12.02% {
         color: #586175;
         text-shadow: 0 0 4px rgba(255, 255, 255, 0.20);
       }
+
       /* 0.626s - 0.660s (12.04% - 12.69%): IMPACT 1 COMPLETE INSTANT BLACKOUT */
-      12.04%, 12.69% {
+      12.04%,
+      12.69% {
         color: #12141a;
         text-shadow: none;
       }
+
       /* 0.661s - 0.930s: Impact 1 electrical flicker */
-      12.71%, 13.27% { color: #555e72; text-shadow: 0 0 3px rgba(255, 255, 255, 0.18); }
-      13.29%, 13.85% { color: #2a2f3b; text-shadow: none; }
-      13.87%, 14.42% { color: #5a6478; text-shadow: 0 0 4px rgba(255, 255, 255, 0.22); }
-      14.44%, 15.10% { color: #383e4d; text-shadow: none; }
-      15.12%, 15.77% { color: #525a6e; text-shadow: 0 0 3px rgba(255, 255, 255, 0.16); }
-      15.79%, 16.35% { color: #242934; text-shadow: none; }
-      16.37%, 17.12% { color: #586175; text-shadow: 0 0 4px rgba(255, 255, 255, 0.20); }
-      17.13%, 17.88% { color: #404758; text-shadow: 0 0 1px rgba(255, 255, 255, 0.10); }
-      17.90%, 28.71% { color: #565f72; text-shadow: 0 0 3px rgba(255, 255, 255, 0.18); }
+      12.71%,
+      13.27% {
+        color: #555e72;
+        text-shadow: 0 0 3px rgba(255, 255, 255, 0.18);
+      }
+
+      13.29%,
+      13.85% {
+        color: #2a2f3b;
+        text-shadow: none;
+      }
+
+      13.87%,
+      14.42% {
+        color: #5a6478;
+        text-shadow: 0 0 4px rgba(255, 255, 255, 0.22);
+      }
+
+      14.44%,
+      15.10% {
+        color: #383e4d;
+        text-shadow: none;
+      }
+
+      15.12%,
+      15.77% {
+        color: #525a6e;
+        text-shadow: 0 0 3px rgba(255, 255, 255, 0.16);
+      }
+
+      15.79%,
+      16.35% {
+        color: #242934;
+        text-shadow: none;
+      }
+
+      16.37%,
+      17.12% {
+        color: #586175;
+        text-shadow: 0 0 4px rgba(255, 255, 255, 0.20);
+      }
+
+      17.13%,
+      17.88% {
+        color: #404758;
+        text-shadow: 0 0 1px rgba(255, 255, 255, 0.10);
+      }
+
+      17.90%,
+      28.71% {
+        color: #565f72;
+        text-shadow: 0 0 3px rgba(255, 255, 255, 0.18);
+      }
+
       /* 1.494s - 1.514s: Impact 2 shock drop */
-      28.73%, 29.12% { color: #1e222b; text-shadow: none; }
-      29.13%, 31.63% { color: #525b6e; text-shadow: 0 0 3px rgba(255, 255, 255, 0.15); }
-      32.38%, 38.27% { color: #565f72; text-shadow: 0 0 3px rgba(255, 255, 255, 0.18); }
+      28.73%,
+      29.12% {
+        color: #1e222b;
+        text-shadow: none;
+      }
+
+      29.13%,
+      31.63% {
+        color: #525b6e;
+        text-shadow: 0 0 3px rgba(255, 255, 255, 0.15);
+      }
+
+      32.38%,
+      38.27% {
+        color: #565f72;
+        text-shadow: 0 0 3px rgba(255, 255, 255, 0.18);
+      }
+
       /* 1.991s - 2.015s: Impact 3 shock */
-      38.29%, 38.75% { color: #333946; text-shadow: none; }
-      38.77%, 47.77% { color: #545d70; text-shadow: 0 0 3px rgba(255, 255, 255, 0.16); }
+      38.29%,
+      38.75% {
+        color: #333946;
+        text-shadow: none;
+      }
+
+      38.77%,
+      47.77% {
+        color: #545d70;
+        text-shadow: 0 0 3px rgba(255, 255, 255, 0.16);
+      }
+
       /* 2.501s - 3.399s: Ground rocking damping */
-      48.10%, 65.36% { color: #565f72; text-shadow: 0 0 3px rgba(255, 255, 255, 0.18); }
+      48.10%,
+      65.36% {
+        color: #565f72;
+        text-shadow: 0 0 3px rgba(255, 255, 255, 0.18);
+      }
+
       /* 3.400s - 4.050s: Post-rest continuous shimmering edge sheen */
-      65.38% { color: #565f72; text-shadow: 0 0 3px rgba(255, 255, 255, 0.18); }
-      65.87% { color: #4b5466; text-shadow: 0 0 1px rgba(255, 255, 255, 0.10); }
-      66.35% { color: #586175; text-shadow: 0 0 3px rgba(255, 255, 255, 0.18); }
-      66.83% { color: #444c5c; text-shadow: 0 0 1px rgba(255, 255, 255, 0.08); }
-      67.31% { color: #565f72; text-shadow: 0 0 3px rgba(255, 255, 255, 0.18); }
-      67.79% { color: #404856; text-shadow: none; }
-      68.27% { color: #565f72; text-shadow: 0 0 3px rgba(255, 255, 255, 0.18); }
-      68.75% { color: #3c4452; text-shadow: none; }
-      69.23% { color: #586175; text-shadow: 0 0 3px rgba(255, 255, 255, 0.18); }
-      69.71% { color: #3e4654; text-shadow: none; }
-      70.19% { color: #565f72; text-shadow: 0 0 3px rgba(255, 255, 255, 0.18); }
-      70.67% { color: #3d4553; text-shadow: none; }
-      71.15% { color: #586175; text-shadow: 0 0 3px rgba(255, 255, 255, 0.18); }
-      71.63% { color: #424a59; text-shadow: 0 0 1px rgba(255, 255, 255, 0.08); }
-      72.12% { color: #565f72; text-shadow: 0 0 3px rgba(255, 255, 255, 0.18); }
-      72.60% { color: #454d5d; text-shadow: 0 0 1px rgba(255, 255, 255, 0.10); }
-      73.08% { color: #586175; text-shadow: 0 0 3px rgba(255, 255, 255, 0.18); }
-      73.65% { color: #495163; text-shadow: 0 0 1px rgba(255, 255, 255, 0.10); }
-      74.23% { color: #586175; text-shadow: 0 0 3px rgba(255, 255, 255, 0.18); }
-      74.81% { color: #4e5668; text-shadow: 0 0 2px rgba(255, 255, 255, 0.12); }
-      75.38% { color: #596377; text-shadow: 0 0 3px rgba(255, 255, 255, 0.20); }
-      75.96% { color: #525a6e; text-shadow: 0 0 2px rgba(255, 255, 255, 0.14); }
-      76.54% { color: #5a6478; text-shadow: 0 0 3px rgba(255, 255, 255, 0.20); }
-      77.21% { color: #565f72; text-shadow: 0 0 3px rgba(255, 255, 255, 0.18); }
+      65.38% {
+        color: #565f72;
+        text-shadow: 0 0 3px rgba(255, 255, 255, 0.18);
+      }
+
+      65.87% {
+        color: #4b5466;
+        text-shadow: 0 0 1px rgba(255, 255, 255, 0.10);
+      }
+
+      66.35% {
+        color: #586175;
+        text-shadow: 0 0 3px rgba(255, 255, 255, 0.18);
+      }
+
+      66.83% {
+        color: #444c5c;
+        text-shadow: 0 0 1px rgba(255, 255, 255, 0.08);
+      }
+
+      67.31% {
+        color: #565f72;
+        text-shadow: 0 0 3px rgba(255, 255, 255, 0.18);
+      }
+
+      67.79% {
+        color: #404856;
+        text-shadow: none;
+      }
+
+      68.27% {
+        color: #565f72;
+        text-shadow: 0 0 3px rgba(255, 255, 255, 0.18);
+      }
+
+      68.75% {
+        color: #3c4452;
+        text-shadow: none;
+      }
+
+      69.23% {
+        color: #586175;
+        text-shadow: 0 0 3px rgba(255, 255, 255, 0.18);
+      }
+
+      69.71% {
+        color: #3e4654;
+        text-shadow: none;
+      }
+
+      70.19% {
+        color: #565f72;
+        text-shadow: 0 0 3px rgba(255, 255, 255, 0.18);
+      }
+
+      70.67% {
+        color: #3d4553;
+        text-shadow: none;
+      }
+
+      71.15% {
+        color: #586175;
+        text-shadow: 0 0 3px rgba(255, 255, 255, 0.18);
+      }
+
+      71.63% {
+        color: #424a59;
+        text-shadow: 0 0 1px rgba(255, 255, 255, 0.08);
+      }
+
+      72.12% {
+        color: #565f72;
+        text-shadow: 0 0 3px rgba(255, 255, 255, 0.18);
+      }
+
+      72.60% {
+        color: #454d5d;
+        text-shadow: 0 0 1px rgba(255, 255, 255, 0.10);
+      }
+
+      73.08% {
+        color: #586175;
+        text-shadow: 0 0 3px rgba(255, 255, 255, 0.18);
+      }
+
+      73.65% {
+        color: #495163;
+        text-shadow: 0 0 1px rgba(255, 255, 255, 0.10);
+      }
+
+      74.23% {
+        color: #586175;
+        text-shadow: 0 0 3px rgba(255, 255, 255, 0.18);
+      }
+
+      74.81% {
+        color: #4e5668;
+        text-shadow: 0 0 2px rgba(255, 255, 255, 0.12);
+      }
+
+      75.38% {
+        color: #596377;
+        text-shadow: 0 0 3px rgba(255, 255, 255, 0.20);
+      }
+
+      75.96% {
+        color: #525a6e;
+        text-shadow: 0 0 2px rgba(255, 255, 255, 0.14);
+      }
+
+      76.54% {
+        color: #5a6478;
+        text-shadow: 0 0 3px rgba(255, 255, 255, 0.20);
+      }
+
+      77.21% {
+        color: #565f72;
+        text-shadow: 0 0 3px rgba(255, 255, 255, 0.18);
+      }
+
       /* 4.050s - 5.200s: Final permanent stable illumination */
-      77.88%, 100.0% {
+      77.88%,
+      100.0% {
         color: #5d677d;
         text-shadow: 0 0 5px rgba(255, 255, 255, 0.25);
       }
@@ -1747,6 +2620,7 @@
       .sculpture-layer {
         letter-spacing: -0.03em;
       }
+
       .intro-shadow-track {
         bottom: -18px;
       }
@@ -1758,44 +2632,52 @@
         animation: none !important;
         transform: translateY(0) rotateZ(0deg) rotateX(-12deg) rotateY(-6deg) !important;
       }
+
       .intro-word-shadow {
         animation: none !important;
         opacity: 0.86 !important;
         transform: scale(1, 1) !important;
         filter: blur(5px) !important;
       }
+
       .intro-impact-flash {
         animation: none !important;
         display: none !important;
       }
+
       .intro-ambient-glow {
         animation: none !important;
         opacity: 0.5 !important;
       }
+
       .layer-front {
         animation: introReducedMotionFade 0.4s ease-out forwards !important;
       }
+
       @keyframes introReducedMotionFade {
         0% {
           opacity: 0;
           color: #ffffff;
           text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
         }
+
         100% {
           opacity: 1;
           color: #ffffff;
-          text-shadow: 
+          text-shadow:
             0 0 3px #ffffff,
             0 0 10px var(--glow-tight),
             0 0 28px var(--glow-mid);
         }
       }
+
       .stay-tuned-text {
         animation: none !important;
       }
     }
   </style>
 </head>
+
 <body>
   <!-- Developer Terminal / CMD Boot Sequence Screen -->
   <div class="terminal-boot-screen" id="terminalBootScreen" role="presentation" aria-hidden="true">
@@ -1917,7 +2799,7 @@
     </div>
   </div>
 
-<script>
+  <script>
     (function initCinematicIntro() {
       const introEl = document.getElementById('cinematicIntro');
       if (!introEl) return;
@@ -2319,4 +3201,5 @@
     })();
   </script>
 </body>
+
 </html>
